@@ -1,0 +1,145 @@
+@if $incluir-grid == true{
+
+
+
+
+/*------------------------------------*\
+    $grid
+\*------------------------------------*/
+/* Este es el grid para los artículos. Hemos pensado hacer varias grids,
+ * de esta manera tenemos un mejor control sobre todos los módulos.
+ */
+.grid {
+  @include flexbox;
+  @include flex-wrap(wrap);
+  margin: 0 auto;
+
+  @include respond-to(medium) {
+    @include justify-content(space-between);
+  }
+}
+
+[class^="grid__item-"], [class*=" grid__item-"] {
+    @include respond-to(large) {
+
+        margin-left: $gap / 2;
+    }
+}
+
+@for $i from 1 to ($grid-size + 1) {
+    .grid__item-#{$i} {
+        display: inline-block;
+        vertical-align: top;
+        @include flex(0 0 100%);
+        // &.article--product {
+        //     @include flex(0 0 48%);
+        // }
+        @include respond-to(medium) {
+            @include flex(0 0 48%);
+            &.article--horizontal {
+                @include flex(0 0 100%);
+            }
+        }
+        @include respond-to(large) {
+            @include flex(0 0 calc(((100% * #{$i}) / (#{$grid-size}))));
+            max-width: calc(((100% * #{$i}) / (#{$grid-size})) - #{$gap});
+
+        }
+    }
+}
+
+/* Este es el grid para las páginas de dos columnas: main y sidebar.
+ * de esta manera tenemos un mejor control sobre todos los módulos.
+ */
+ .grid--twocols {
+    display: table;
+ }
+    .grid--twocols__main {
+        width: calc(100% - #{$gutterwidth});
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: $gutterwidth;
+        padding: $gutterwidth;
+        background-color: $white;
+
+    }
+
+    .grid--products {
+        @include full-centered;
+        padding: $gutterwidth $gutterwidth ($gutterwidth / 2);
+        margin-bottom: $gutterwidth;
+        background-color: $white;
+    }
+    @media all and (max-width: $pagemaxwidth) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+/*------------------------------------*\
+    $BLOCKS
+\*------------------------------------*/
+/* Differents blocks, as logins, register and double blocks
+ */
+
+.block-centered {
+    @include max-width(600px);
+    padding: $gutterwidth / 2;
+    background-color: $white;
+    @include respond-to(medium) {
+        padding: $gutterwidth ($gutterwidth * 5);
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+        img {
+            max-width: 150px;
+        }
+    }
+}
+
+
+
+// Edges Block are two components in a line: one to the left and another to the right.
+    .edges-block {
+        @include flexbox;
+        width: 100%;
+        > div {
+            @include flex(100%);
+            &:last-child {
+                text-align: right;
+                @include  flex(1,0,auto);
+            }
+        }
+        &.edges-block--fifty {
+            > div {
+                @include flex(50%);
+                margin-right: $gutterwidth;
+                &:last-child {
+                    text-align: right;
+                    @include  flex(1,0,50%);
+                    margin-right: 0;
+                }
+
+            }
+        }
+    }
+
+        .edges-block--mobile {
+            @include flex-wrap(wrap);
+            > div {
+                @include flex(100%);
+                &:last-child {
+                    text-align: center;
+                    @include flex(100%);
+                }
+            }
+            @include respond-to(large) {
+                @include flex-wrap(nowrap);
+            }
+        }
+
+    .azlinraeh-block {
+        background-color: $white;
+    }
+} // end if

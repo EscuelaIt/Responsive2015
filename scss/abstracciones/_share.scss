@@ -1,0 +1,87 @@
+@if $incluir-share == true{
+
+
+
+
+/*------------------------------------*\
+    $SHARE
+\*------------------------------------*/
+/*
+ * Share in Social Networks module, and clasess.
+ */
+
+	.share {
+
+	}
+		.share__title {
+			display: block;
+			line-height: 1.2;
+		}
+
+		[class^="share__social-"] {
+			display: inline-block;
+			position: relative;
+			vertical-align: middle;
+			text-decoration: none;
+			text-align: center;
+			font-size: fs(small);
+			line-height: 1;
+			max-width: 120px;
+			padding: 0 .5em;
+		    &:before {
+				font-family: 'icomoon';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				color: $white;
+				margin: 0;
+				line-height: 1.8;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+		}
+		@each $socialnetwork, $social-colors in $social-colors {
+		    .share__social-#{$socialnetwork} {
+		        color: darken($social-colors, 40);
+		        background-color: $social-colors;
+		        @extend .icon-social-#{$socialnetwork};
+		  		&:after {
+					content: "";
+					color: $white;
+					padding-left: 1em;
+					font-size: fs(small);
+
+					@include respond-to(large) {
+						content: "#{$socialnetwork}";
+					}
+				}
+				&:before {
+					color: $white;
+					font-family: icomoon;
+				}
+		    }
+		}
+		// icons to links to social networks
+		.social-icons {
+			display: inline-block;
+			vertical-align: middle;
+			margin-left: $gutterwidth;
+			margin-right: $gutterwidth / 2;
+			color: $black;
+			text-decoration: none;
+			&:before {
+				line-height: 2;
+			}
+			&:visited {
+				color: $black;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+			@include respond-to(medium){
+				margin-left: $gutterwidth * 2;
+			}
+		}
+}

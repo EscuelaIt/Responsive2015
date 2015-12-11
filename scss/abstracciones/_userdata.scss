@@ -1,0 +1,40 @@
+@if $incluir-userdata == true{
+
+
+
+
+/*------------------------------------*\
+    $USERDATA
+\*------------------------------------*/
+/*
+ * Layout to show user description
+ */
+
+	.userdata {
+		background-color: $white;
+		@extend %clearfix;
+		padding: $gutterwidth / 2;
+		margin-top: ($gutterwidth / 2) * -1;
+	}
+		.userdata__avatar {
+			display: inline-block;
+			vertical-align: top;
+			max-width: 66px;
+		}
+		.userdata__header {
+			display: inline-block;
+			vertical-align: top;
+			// width: calc(100% - 78px);
+			margin-left: $gutterwidth / 2;
+			margin-bottom: $baseline;
+		}
+		.userdata__text {
+			font-size: fs(small);
+			@extend %clearfix;
+			width: 100%;
+		}
+		.userdata__footer {
+			font-size: fs(small);
+		}
+
+}

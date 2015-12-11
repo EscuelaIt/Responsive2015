@@ -1,0 +1,80 @@
+@if $incluir-encabezados == true{
+
+
+
+
+
+/*------------------------------------*\
+    $ENCABEZADOS
+\*------------------------------------*/
+    .main-header {
+        background-color: $secondary;
+        width: 100%;
+        padding: ($gutterwidth * 1) ($gutterwidth / 2)($gutterwidth / 2);
+        margin-bottom: 0;
+        position: relative;
+        font-size: fs(big);
+        color: $white;
+        small {
+            font-size: fs(normal);
+            color: $white;
+            line-height: 3;
+        }
+        @include respond-to(medium) {
+            padding: ($gutterwidth * 6) ($gutterwidth / 2)($gutterwidth / 2);
+            small {
+                float: right;
+            }
+        }
+
+        &.main-header--small {
+            padding: ($gutterwidth) ($gutterwidth / 2)($gutterwidth / 4);
+            small {
+                bottom: 0;
+                position: relative;
+                right: auto;
+                bottom: auto;
+                display: block;
+            }
+        }
+    }
+
+    .fashionist-header {
+        @include flexbox;
+        @include align-items(flex-start);
+        @include justify-content(center);
+        margin-top: $gutterwidth * -1;
+        background-color: $secondary;
+        padding-top: $gutterwidth;
+        padding-bottom: $gutterwidth;
+        margin-bottom: $gutterwidth;
+        .social-icons {
+            margin-left: 0;
+            margin-right: $gutterwidth / 4;
+            background-color: $white;
+            display: inline-block;
+            line-height: 2;
+            width: 2em;
+            text-align: center;
+            &:before {
+                font-size: fs(normal);
+            }
+        }
+    }
+        .fashionista-header__name {
+            margin-bottom: 0;
+        }
+        .fashionist-header__avatar {
+            max-width: 150px;
+            border: 5px solid $white;
+            box-shadow: 0 0 2px $grey;
+        }
+        .fashionista-header__content {
+            max-width: 300px;
+            padding-left: $gutterwidth;
+        }
+        .fashionist__description {
+            line-height: 1;
+        }
+
+}

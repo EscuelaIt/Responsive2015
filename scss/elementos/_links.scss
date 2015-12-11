@@ -1,0 +1,30 @@
+
+
+
+
+
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+a {
+	text-decoration : underline;
+	color : $linkcolor;
+
+	&:visited {
+		color : $linkcolor;
+	}
+
+	&:hover {
+		text-decoration : underline;
+	}
+
+	&:focus {
+		outline : thin dotted;
+		color : $linkcolorfocus;
+	}
+
+	&:hover,
+	&:active {
+		outline : 0;
+	}
+}

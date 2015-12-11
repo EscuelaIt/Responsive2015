@@ -1,0 +1,62 @@
+@if $incluir-slide == true{
+
+
+
+
+
+/*------------------------------------*\
+    $SLIDES
+\*------------------------------------*/
+/*
+ *
+ */
+
+
+.slide {
+    width: 100%;
+    background-color: $lightergrey;
+    padding: $gutterwidth ($gutterwidth * 2);
+    display: table;
+    position: relative;
+    min-height: 300px;
+}
+
+    .slide__centered {
+        max-width: 620px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .slide__image, .slide__text {
+        display: table-cell;
+        width: 50%;
+        vertical-align: top;
+        padding: 0 $gutterwidth;
+    }
+        .slide__prev, .slide__next {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            @include translate(-50%,0);
+            cursor: pointer;
+            color: $grey;
+            font-size: fs(huge);
+        }
+
+        .slide__prev {
+            left: $gutterwidth;
+            &:before {
+                content: "\e60e";
+                font-family: icomoon;
+            }
+        }
+        .slide__next {
+            right: 0;
+            &:before {
+                content: "\e60f";
+                font-family: icomoon;
+            }
+        }
+
+
+
+} // endif

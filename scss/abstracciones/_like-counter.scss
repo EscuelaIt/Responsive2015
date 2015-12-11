@@ -1,0 +1,69 @@
+@if $incluir-likes == true{
+
+
+
+
+
+/*------------------------------------*\
+    $LIKES
+\*------------------------------------*/
+/*
+ * LIKE/DISLIKE buttons
+ */
+.rate-hearth {
+    font-size: fs(huge);
+    position: absolute;
+    text-align: center;
+    top: 60px;
+    color: $basecolor;
+    z-index: z(shoryuken);
+    @include transition(all .2s ease-in);
+    &:before {
+        font-family: icomoon;
+        display: block;
+        margin-bottom: 5px;
+        text-shadow:    0 1px 0 #fff,
+                        0 -1px 0 #fff,
+                        1px 0 0 #fff,
+                        -1px 0 0 #fff;
+    }
+    &:after {
+        background-color: $white;
+        color: $darkgrey;
+        font-size: fs(x-small);
+        border: 1px solid $darkgrey;
+        padding: 0 3px;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: lighten($basecolor, 20);
+    }
+}
+    .rate-hearth__like {
+        left: $gutterwidth;
+        &:before {
+            content: "\e61f";
+        }
+        &:after {
+            content: attr(data-like);
+        }
+    }
+    .rate-hearth__dislike {
+        right: $gutterwidth;
+        &:before {
+            content: "\e61a";
+        }
+        &:after {
+            content: attr(data-dislike);
+        }
+    }
+
+.grid__item-2 {
+    .rate-hearth {
+        font-size: fs(big);
+    }
+}
+
+
+} // endif

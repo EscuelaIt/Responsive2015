@@ -1,0 +1,40 @@
+@if $incluir-checkbox-list == true{
+
+
+
+
+
+/*------------------------------------*\
+    $CHECKBOXES-LIST
+\*------------------------------------*/
+/*
+ * Los usados para mostrar ua lista de categorías seleccionables.
+ */
+ .checkbox-list {
+    margin: 0;
+    padding: 0;
+ }
+
+    .checkbox-list__item {
+        background-color: $lightergrey;
+        padding: 0 3px;
+        margin-bottom: $gutterwidth / 4;
+        input[type="checkbox"] {
+            width: $gutterwidth / 1.5;
+            height: $gutterwidth / 1.5;
+            margin: 0;
+            vertical-align: baseline;
+        }
+    }
+
+        .checkbox-list__sublist {
+            padding-left: $gutterwidth / 2;
+            margin-bottom: $gutterwidth / 2;
+            .checkbox-list__item {
+                font-size: fs(small);
+                border: none;
+            }
+        }
+
+
+} // endif

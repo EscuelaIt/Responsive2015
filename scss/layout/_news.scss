@@ -1,0 +1,64 @@
+@if $incluir-news == true{
+
+
+
+
+/*------------------------------------*\
+    $NEWS
+\*------------------------------------*/
+/* Layout for the news section, we don't include the sidebar since it depends on the grid.
+ */
+.news {
+    background-color: $white;
+    padding: $gutterwidth;
+}
+    .news__img {
+        @include respond-to(small) {
+            float: left;
+            max-width: 32%;
+            min-width: 200px;
+            margin-right: $gutterwidth;
+            margin-bottom: $gutterwidth;
+        }
+    }
+    .news__header {
+        width: 100%;
+        margin-bottom: $baselineheight;
+        @include respond-to(small) {
+            float: left;
+            width: calc(68% - #{$gutterwidth});
+            display: inline-block;
+            &.news__header--video {
+                width: 100%;
+                float: none;
+            }
+        }
+    }
+        .news__header__top {
+            margin-bottom: $baselineheight / 2;
+        }
+        .news__header__title {
+            margin-bottom: $baselineheight / 2;
+        }
+        .news__avatar {
+            max-width: 44px;
+        }
+
+    .news__content {
+        margin-bottom: $gutterwidth;
+        img {
+            display: block;
+            margin: $gutterwidth auto;
+            border: 10px solid $lightergrey;
+            @include respond-to(medium) {
+                width: auto;
+                max-width: 730px;
+            }
+        }
+    }
+    .news__footer {
+        padding-top: $gutterwidth / 2;
+        border-top: 1px solid $lightgrey;
+    }
+
+} // end if

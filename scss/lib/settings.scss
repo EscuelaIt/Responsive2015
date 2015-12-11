@@ -1,0 +1,374 @@
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+
+
+/*------------------------------------*\
+    $OBJETOS Y ABSTRACCIONES
+\*------------------------------------*/
+/**
+ * Qué objetos y abstracciones vamos a usar? (true: se usa, false: no se usa)
+ */
+
+$incluir-grid:          false!default;
+$incluir-botones:       false!default;
+$incluir-navegacion:    true!default;
+$incluir-paginacion:    false!default;
+$incluir-tablas:        false!default;
+$incluir-texturas:      false!default;
+$incluir-flexbox:       true!default;
+$incluir-fonticon:      false!default;
+$incluir-abstracciones: false!default;
+$incluir-news:          false!default;
+$incluir-likes:          false!default;
+$incluir-video:          false!default;
+$incluir-share:          false!default;
+$incluir-userdata:       false!default;
+$incluir-comments:       false!default;
+$incluir-admin:          false!default;
+$incluir-encabezados:    false!default;
+$incluir-footer:         false!default;
+$incluir-cookies:         false!default;
+$incluir-slide:           false!default;
+$incluir-error:           false!default;
+$incluir-checkbox-list:  false!default;
+
+$incluir-imgclass:       false!default;
+$incluir-debug:         false!default;
+
+/**
+ *
+ * Definimos y configuramos las variables CSS que vamos a utilizar
+ *
+ */
+
+
+/*------------------------------------*\
+    $BREAKPOINTS
+\*------------------------------------*/
+/**
+ * "Start with the small screen first, then expand until it looks like shit. Time to insert a breakpoint!"
+ * Lo usamos con el mixin respond-to($breakpoint):
+
+.text {
+  color: pink;
+  @include respond-to(medium) {
+    color: maroon;
+  }
+}
+ *
+ */
+
+$breakpoints: (
+  'small'  : 29em,
+  'medium' : 31em,
+  'large'  : 68.75em,
+) !default;
+
+// Para implementar "retina" solo tenemos que usar "retina" como variable en el mixin.
+
+
+
+/*------------------------------------*\
+    $Z-INDEX
+\*------------------------------------*/
+/**
+ * Podemos controlar los z-index con variables más reconocibles.
+ * Para usarlo, implementamos la función z($layers):
+ .element {
+  z-index: z(goku);
+ }
+ *
+ */
+
+$z-layers: (
+  "goku":            9001,
+  "shoryuken":       8000,
+  "default":            1,
+  "below":             -1,
+  "bottomless-pit": -9000
+);
+
+/*------------------------------------*\
+    $COLORES-SOCIALES
+\*------------------------------------*/
+/* Colores sociales -> son los colores corporativos, pero cambiadlos
+ * si hace falta. (también podéis añadir más)  ///////////////////////
+ */
+
+ $social-colors: (
+"facebook"       :rgb(59, 89, 182),
+"twitter"      :rgb(85,172,238),
+"google"       :rgb(221, 75, 57),
+"pinterest"      :rgb(203, 32, 39),
+"instagram"       :#4E433C,
+"youtube"       : #FF3333
+);
+
+
+
+/**
+ * Colores para las secciones de la web.
+ */
+
+$category-colors: (
+"video"    :    #f6d8a0,
+"looks"    :    #a3cbd1,
+"moda"      :    #fcf1bc,
+"belleza"   :    #fbd4b5,
+"lifestyle" :   #d97690,
+"base"     :    #A93667
+);
+
+
+
+/*
+ * Las variables de tamaño las definimos en un MAP, puedes añadir, quitar o cambiarlas.
+ * Vienen dadas en REM. Esto creará una clase con el mismo nombre de la variable:
+
+  .x-small { font-size: .8rem}
+
+ * También podemos asignar tamaños con un función llamada fs:
+
+    .selector { font-size: fs(x-small);}
+
+ *
+ */
+$size-vars: (
+  "x-small"  :    .68,
+  "small"    :    .85,
+  "normal"   :    1,
+  "big"      :    1.5,
+  "huge"     :    2,
+  "extreme"  :    3
+
+);
+
+
+/*------------------------------------*\
+    $DIR
+\*------------------------------------*/
+/**
+ * Con agregar esta variable a las imágenes declaradas en CSS apañamos:
+ */
+$image-dir: "/Content/img";
+
+ //Use: background-image:url("#{$image-dir}/btn.jpg");
+
+ /*
+  * Igual para las fuentes
+  */
+
+$font-dir: "/Content/fonts";
+/*
+ *   src:url('#{$font-dir}/icomoon.eot');
+ *   src:url('#{$font-dir}/icomoon.eot?#iefix') format('embedded-opentype'),
+ *   url('#{$font-dir}/icomoon.woff') format('woff'),
+ *   url('#{$font-dir}/icomoon.ttf') format('truetype'),
+ *   url('#{$font-dir}/icomoon.svg#icomoon') format('svg');
+*/
+
+
+
+
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+/**
+ * Definimos elementos constantes del layout
+ */
+$baselineheight :     1.5em;
+$baseline :           $baselineheight;
+$gutterwidth :        22px;
+$pagemaxwidth :       1200px;
+$radius :             0;
+$hovertransition :    .3s;
+$animationtime :      .8s;
+$footerheight :       250px;
+
+
+
+
+/*------------------------------------*\
+    $grid
+\*------------------------------------*/
+$gap : 22px;
+$grid-size: 12;
+
+
+
+
+/*------------------------------------*\
+    $FONT-FACE
+\*------------------------------------*/
+/**
+ * Definimos las fuentes a utilizar:
+ * $basefont para todos los textos inline
+ * $altfont para textos alternativos, como citas, intro, etc...
+ * $codefont para código
+ */
+$basefont : Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
+$altfont : Georgia, Times, "Times New Roman";
+$codefont : "Courier New", monospace;
+$baseheadingfont : inherit;
+
+$baseheadingfontweight : 300;
+$baseheadingfontcolor : inherit;
+
+$altlineheight : 1.35em;
+
+
+
+
+
+
+/*------------------------------------*\
+    $TAMAÑOS
+\*------------------------------------*/
+/**
+ * Definimos los tamaños de fuentes:
+
+ */
+$basefontsize   :   16;
+
+
+
+
+
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+$basecolor      : #A93667; // Morado
+$basecolor-light: lighten($basecolor, 5%);
+$secondary      : #c2d9d3; // Bleu
+$bordercolor    : #ebebeb;
+$compcolor      : rgb(216,240,227); //
+
+/**
+ * Escala de grises
+ * A veces no queremos que el negro sea "negro" o el blanco "blanco", puedes cambiarlos.
+ */
+$black      : rgb(0,0,0);
+$superdark    : lighten($black, 10%);
+$darkergrey   : lighten($black, 15%);
+$darkgrey     : lighten($black, 25%);
+$grey       : lighten($black, 50%);
+$lightgrey    : lighten($black, 90%);
+$lightergrey  : lighten($black, 98%);
+$white      : rgb(255,255,255);
+
+// Web
+$background:    $lightergrey;
+$textcolor:     $darkergrey;
+$textcolor-strong:  $black;
+
+// Links  //////////////////////
+$linkcolor        : $textcolor;
+$linkcolorhover   : darken($linkcolor, 10);
+$linkcolorvisited   : $basecolor;
+$linkcolorfocus   : darken($linkcolorvisited, 10);
+
+
+
+
+
+
+/*------------------------------------*\
+    $TEXTURAS
+\*------------------------------------*/
+/**
+ * Definimos Colores y elementos de popups, mensajes de alerta, etc...
+ */
+$color-alert  : rgb(252,228,207);
+$color-error  : rgb(218,79,73);
+$color-info   : rgb(0,170,255);
+$color-inverse  : invert($secondary);
+$color-success  : rgb(135,216,115);
+$color-warning  : rgb(201,73,72);
+$color-cta      : rgb(16,197,206);
+
+
+// Texturas de popups
+$alertbordercolor : darken($color-alert, 20%);
+$alertborderwidth   : 1px;
+$alertborderstyle   : solid;
+$alerttext      : darken($color-alert, 60%);
+
+// Error
+$alerterrorcolor  : lighten($color-error, 30%);
+$alerterrorborder   : lighten($color-error, 20%);
+$alerterrortext   : $color-error;
+
+// Info
+$alertinfocolor   : lighten($color-info, 10%);
+$alertinfoborder    : darken($color-info, 10%);
+$alertinfotext    : darken($color-info, 50%);
+
+// Inverso
+$alertinversecolor  : $color-inverse;
+$alertinverseborder : $black;
+$alertinversetext   : $white;
+
+// Success
+$alertsuccesscolor  : lighten($color-success, 30%);
+$alertsuccessborder : lighten($color-success, 20%);
+$alertsuccesstext   : darken($color-success, 20%);
+
+// Advertencia
+$alertwarningcolor  : lighten($color-warning, 30%);
+$alertwarningborder : lighten($color-warning, 20%);
+$alertwarningtext   : darken($color-warning, 20%);
+
+
+
+
+// badges
+$badgebackground    : $white;
+$badgecolor         : $textcolor;
+
+// botones
+$buttonbackground   : rgb(169,54,103);
+$buttonbordercolor  : darken($buttonbackground, 10%);
+$buttonbottombordercolor : darken($buttonbordercolor, 10%);
+$buttoncolor        : $white;
+$buttonborderwidth  : 1px;
+$buttonborderstyle  : solid;
+
+// boxes (well)
+$wellbackground     : $lightergrey;
+$wellbordercolor    : $lightgrey;
+$wellborderwidth    : 0px;
+$wellborderstyle    : solid;
+$wellshadow         : darken($wellbackground, 10%);
+$wellshadowblur     : 10px;
+
+// tablas
+$tablebackground    : transparent;
+$tablestripe        : lighten($basecolor, 60%);
+$tablehover         : lighten($basecolor, 50%);
+$tableborder        : lighten($basecolor, 40%);
+$tableborderwidth   : 1px;
+$tableborderstyle   : solid;
+
+// formularios
+$inputbackground    : $white;
+$inputborder        : $lightgrey;
+$inputborderwidth   : 1px;
+$inputborderstyle   : solid;
+$inputhover         : lighten($black, 50%);
+$inputfocus         : $basecolor, 40%;
+$placeholdercolor   : $lightergrey;
+
+
+// Navegación
+$nav-width:               44px;
+$nav-height:              42px;
+$nav-icon-size:           24px;
+$nav-color:               $white;
+$nav-background:          $basecolor;
+$nav-borders:             lighten($nav-background, 10%);
+$nav-lists-background:    $basecolor;

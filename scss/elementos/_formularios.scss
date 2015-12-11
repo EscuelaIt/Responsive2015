@@ -1,0 +1,307 @@
+
+
+
+
+
+/*------------------------------------*\
+    $FORMULARIOS
+\*------------------------------------*/
+
+form {
+	margin : 0 0 $gutterwidth 0;
+
+	fieldset {
+		margin-bottom : $baselineheight;
+		padding : 0;
+		border-width : 0;
+	}
+
+	legend {
+		display : block;
+		width : 100%;
+		margin-bottom : $baselineheight * 2;
+		padding : 0;
+		color : $textcolor;
+		border : 0;
+		border-bottom : $inputborderwidth $inputborderstyle $inputborder;
+		white-space : normal;
+
+		small {
+			font-size: fs(x-small);
+			color : $lightgrey;
+		}
+	}
+
+	p {
+		margin-bottom : $baselineheight / 2;
+	}
+
+	ul {
+		list-style-type : none;
+		margin : 0 0 $baselineheight 0;
+		padding : 0;
+	}
+
+	br {
+		display : none;
+	}
+}
+
+label,
+input,
+button,
+select,
+textarea {
+	font-size: fs(normal);
+	border-radius: $radius;
+	vertical-align : baseline;
+	margin-bottom: $gutterwidth / 2;
+}
+
+input,
+button,
+select,
+textarea {
+	font-family : $basefont;
+	@include box-sizing(border-box);
+}
+
+label, .label {
+	display : inline-block;
+	margin-bottom : $baseline / 8;
+	color : $textcolor;
+	cursor : pointer;
+
+	input,
+	textarea,
+	select {
+	display : block;
+	}
+}
+
+input,
+textarea,
+select {
+	display : inline-block;
+	width : 100%;
+	padding : 0 4px;
+	background-color : $inputbackground;
+	border : $inputborderwidth $inputborderstyle $inputborder;
+	color : $textcolor;
+	line-height: $baselineheight * 1.5;
+	font-size: fs(normal);
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+	&:hover {
+		border-color : $inputhover;
+	}
+}
+
+.input--mini {
+	width : 60px;
+}
+
+.input--small {
+	width : 90px;
+}
+
+.input--medium {
+	width: 200px;
+}
+
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+	width : $gutterwidth;
+	height : $gutterwidth;
+	padding : 0;
+	margin : 3px 0;
+	line-height : normal;
+	cursor : pointer;
+	border : 0 \9;
+	background-color: $white;
+	&:checked {
+		background-color: $basecolor;
+		border-color: $white;
+		border-width: 2px;
+		box-shadow: 0 0 0 1px $basecolor;
+		width : $gutterwidth - 2px;
+		height : $gutterwidth - 2px;
+	}
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	display: inline-block;
+	padding : 0;
+}
+
+input[type="image"] {
+	border : 0;
+	@include box-shadow(none);
+}
+
+input[type="file"] {
+	width : auto;
+	padding : initial;
+	line-height : initial;
+	border : initial;
+	background-color : transparent;
+	background-color : initial;
+	@include box-shadow(none);
+}
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	width : auto;
+	height : auto;
+	cursor : pointer;
+	margin-bottom: 0!important;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select,
+input[type="file"] {
+	height : 28px;
+	*margin-top : 4px;
+	line-height : 28px;
+}
+
+select {
+	background-color : $inputbackground;
+	font-size: fs(small);
+}
+
+select[multiple],
+select[size] {
+	height : auto;
+}
+
+textarea {
+@include resize(vertical);
+	height : auto;
+	overflow : auto;
+	vertical-align : top;
+}
+
+input[type="hidden"] {
+	display : none;
+}
+
+
+// disabled
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+	@include opacity(.5);
+	cursor : not-allowed;
+}
+
+// focus and active
+
+input:focus,
+textarea:focus {
+	border-color : $inputfocus;
+	outline : 0;
+	outline : thin dotted \9;
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+select:focus {
+	@include box-shadow(none);
+}
+
+::-webkit-input-placeholder {
+	font-size: fs(small);
+}
+
+input:-moz-placeholder {
+	font-size: fs(small);
+}
+
+
+.form-inline {
+	@include flexbox;
+	margin-bottom: 0;
+	@include align-items(center);
+	input[type="text"]{
+		width: 100%;
+		margin-right: $gutterwidth / 2;
+	}
+	label {
+		display: none;
+		width: 200px;
+		margin-right: $gutterwidth / 2;
+		@include respond-to(medium) {
+			display: inline-block;
+		}
+	}
+	input[type="submit"], .btn, button {
+		width: 180px;
+		margin-right: $gutterwidth / 2;
+	}
+
+	&.newsletter {
+		display: none;
+		@include respond-to(medium) {
+			@include flexbox;
+		}
+	}
+}
+
+.form-inline input,
+.form-inline textarea,
+.form-inline select {
+	display : inline-block;
+	margin-bottom : 0;
+	vertical-align: baseline;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+	margin-right: $gutterwidth / 2;
+}
+
+
+.date-part, .time-part {
+	margin-bottom: $gutterwidth / 2;
+	input, select {
+		width: 80px;
+		margin: 0 ($gutterwidth / 4);
+	}
+	small {
+		display: inline-block;
+		width: 40px;
+	}
+}
+
+.checkbox {
+	vertical-align: top;
+	input[type="checkbox"] {
+		vertical-align: top;
+	}
+}
+/**
+* Validamos los formularios que son "required":
+* http://coolvillage.es/ayuda-al-usuario-a-rellenar-formularios-con-css/
+*/
+
+input:required:focus:invalid {
+  	background-color:lighten($color-alert, 5%);
+  	border:1px solid $color-alert;
+}
+input:required:focus:valid {
+  	background-color:lighten($color-success, 40%);
+  	border:1px solid $color-success;
+}

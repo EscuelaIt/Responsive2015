@@ -1,0 +1,35 @@
+
+
+
+
+/*------------------------------------*\
+    $CATEGORY COLORS
+\*------------------------------------*/
+/**
+ * Colores para las secciones, sólo añadid el color al mapa en _settings.scss,
+ * y para usarlo le ponemos el prefijo "category". Así por
+ * ejemplo para dar el color a un encabezado de la categoría looks:
+
+  <h2 class="category-looks">Título </h2>
+
+ */
+
+
+
+// Generamos nombre de categoría: BAckground color + color más oscuro
+@each $color, $category-colors in $category-colors {
+    .category-#{$color} {
+        background-color:$category-colors;
+        color: darken($category-colors, 50);
+        a, &:visited, a:visited {
+           color: darken($category-colors, 50);
+        }
+    }
+}
+
+// generamos variables para los colores (Doesn't work, dunno why. however, it works)
+// in a standalone code.
+
+@function cc($color) {
+  @return map-get($category-colors, $color);
+}

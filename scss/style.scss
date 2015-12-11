@@ -1,0 +1,74 @@
+
+
+
+
+/*------------------------------------*\
+    $STYLE
+\*------------------------------------*/
+/**
+ * Aquí incluímos todos los módulos (archivos .scss) que se van
+ * a compilar en el CSS definitivo: /css/style.css.
+ */
+
+/**
+* Librerías
+**/
+@import "lib/settings.scss";
+@import "lib/mixins.scss";
+@import "lib/funciones.scss";
+@import "lib/flex.scss";
+@import "lib/placeholders.scss";
+
+
+/**
+* Bases
+**/
+@import "base/contenido.scss";
+@import "base/reset.scss";
+@import "base/debug.scss";
+
+
+/**
+* Selectores de elemento: un super "normalize":
+**/
+@import "elementos/figure.scss";
+@import "elementos/formularios.scss";
+@import "elementos/imagenes.scss";
+@import "elementos/links.scss";
+@import "elementos/tipografia.scss";
+@import "elementos/tablas.scss";
+
+/**
+* Layout del sitio
+**/
+@import "layout/sitio.scss";
+@import "layout/footer.scss";
+@import "layout/header.scss";
+@import "layout/navegacion.scss";
+@import "layout/articles.scss";
+@import "layout/news.scss";
+@import "layout/admin-area.scss";
+
+/**
+* Abstracciones y objetos
+**/
+@import "abstracciones/botones.scss";
+@import "abstracciones/fonticon.scss";
+@import "abstracciones/grid.scss";
+@import "abstracciones/paginacion.scss";
+@import "abstracciones/texturas.scss";
+@import "abstracciones/category-colors.scss";
+@import "abstracciones/video.scss";
+@import "abstracciones/abstracciones.scss";
+@import "abstracciones/like-counter.scss";
+@import "abstracciones/share.scss";
+@import "abstracciones/userdata.scss";
+@import "abstracciones/comments.scss";
+@import "abstracciones/encabezados.scss";
+@import "abstracciones/steps.scss";
+@import "abstracciones/cookies.scss";
+@import "abstracciones/slides.scss";
+@import "abstracciones/error.scss";
+@import "abstracciones/checkbox-list.scss";
+
+

@@ -1,0 +1,40 @@
+@if $incluir-comments == true{
+
+
+
+
+/*------------------------------------*\
+    $COMMENTS
+\*------------------------------------*/
+/*
+ * Comments, used often in the LOOK area.
+ */
+
+	.comments {
+		background-color: $white;
+		padding: $gutterwidth;
+	}
+		.comments__single {
+			&:nth-last-of-type(1) {
+				margin-bottom: $gutterwidth * 3;
+			}
+		}
+			.comments__single__title {
+				font-size: (small);
+				color: $grey;
+				padding-left: .8em;
+				position: relative;
+				&:before {
+					content: "";
+					position: absolute;
+					left: 0;
+					top: 35%;
+					width: 6px;
+					height: 6px;
+					background-color: $basecolor;
+				}
+			}
+			.comments__single__text {
+				border-bottom: 1px solid $grey;
+			}
+}

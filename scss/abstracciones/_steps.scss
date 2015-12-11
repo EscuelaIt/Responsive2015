@@ -1,0 +1,32 @@
+
+
+
+
+/*------------------------------------*\
+    $STEPS
+\*------------------------------------*/
+/**
+ * Any step formulary indicator
+ */
+
+.steps {
+  @include flexbox;
+  width: 100%;
+  background-color: $white;
+  padding: $gutterwidth / 2;
+  margin-bottom: $gutterwidth / 2;
+}
+  .steps__item {
+    @include flex(1);
+    border-top: 4px solid lighten($basecolor, 40);
+    margin-right: 2px;
+    color: $lightgrey;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.selected {
+      border-top: 4px solid $basecolor;
+      color: $textcolor;
+    }
+  }

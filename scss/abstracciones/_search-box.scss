@@ -1,0 +1,33 @@
+@if $incluir-search-box == true{
+
+
+
+
+
+/*------------------------------------*\
+    $CHECKBOXES-LIST
+\*------------------------------------*/
+/*
+ * Los usados para mostrar ua lista de categorías seleccionables.
+ */
+
+.search {
+    @include flexbox;
+    width: 100%;
+    background-color: $lightergrey;
+    padding: ($gutterwidth / 2) ($gutterwidth / 4);
+    margin: 0;
+}
+    .search__field {
+        @include flex-basis(100%);
+        margin:0 5px 0 0;
+    }
+    .search__icon {
+        @extend .btn;
+        color: $white;
+        &:visited {
+            color: $white;
+        }
+    }
+
+} // endif

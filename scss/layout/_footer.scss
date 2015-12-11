@@ -1,0 +1,99 @@
+@if $incluir-footer == true{
+
+
+
+
+
+/*------------------------------------*\
+    $FOOTER
+\*------------------------------------*/
+/**
+*
+*/
+
+    .footer-main {
+        width: 100%;
+        height: $footerheight;
+    }
+        .footer__items {
+                width: 100%;
+                margin: 0 0 $gutterwidth;
+                padding: 0;
+                @include respond-to(medium) {
+                    display: table;
+                    margin: 0 auto $gutterwidth;
+                    table-layout: fixed;
+                }
+
+            .nav__item {
+                display: inline-block;
+                width: 100%;
+                @include respond-to(medium) {
+                    padding: 0 ($gutterwidth);
+                    display: table-cell;
+                    width: auto;
+                }
+            }
+        }
+
+        .footer-main__blackzone {
+            @include full-centered();
+            @include flexbox;
+            background-color: $black;
+            color: $white;
+            padding-top: $gutterwidth;
+            padding-bottom: $gutterwidth;
+            .form-inline {
+                @include flex(1,1,100%);
+                label {
+                    color: $white;
+                }
+            }
+        }
+            .footer-main__blackzone__social {
+                width: 100%;
+                text-align: center;
+                @include respond-to(medium) {
+                    width: 800px;
+                    text-align: right;
+                }
+                .social-icons {
+                    color: $white;
+                    &:visited {
+                        color: $white;
+                    }
+                }
+            }
+
+        .footer-main__whitezone {
+            background-color: $white;
+            @include full-centered();
+        }
+
+            .footer-main__buttoms {
+                @include respond-to(medium) {
+                    display: table;
+                    table-layout: fixed;
+                    width: 100%;
+                    margin-bottom: $gutterwidth;
+                }
+            }
+                .footer-main__buttoms__item {
+                    display: block;
+                    text-align: center;
+                    margin-bottom: $gutterwidth;
+                    @include respond-to(medium) {
+                        display: table-cell;
+                        padding: 0 $gutterwidth;
+                    }
+                    .btn {
+                        display: block;
+                        max-width: 200px;
+                        margin: 0 auto;
+                    }
+                }
+
+
+
+
+} //endif

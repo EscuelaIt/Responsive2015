@@ -1,0 +1,47 @@
+@if $incluir-error == true{
+
+
+
+
+/*------------------------------------*\
+    $ERROR
+\*------------------------------------*/
+/*
+ * Layout páginas de error
+ */
+
+	 .error-page {
+        position: relative;
+        width: 100%;
+        &:before {
+                content: "";
+                position: absolute;
+                top: 20%;
+                bottom: 20%;
+                left: 0;
+                right: 0;
+                display: block;
+                background-color: lighten($basecolor, 50);
+                z-index: z(below);
+            }
+	 }
+		.error-page__img {
+			padding: $gutterwidth * 2;
+            display: inline-block;
+            vertical-align: middle;
+
+			img {
+				width: 500px;
+			}
+
+
+		}
+
+        .error-page__content {
+            display: inline-block;
+            background-color: $white;
+            padding: $gutterwidth;
+            vertical-align: middle;
+        }
+
+}

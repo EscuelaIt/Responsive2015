@@ -1,0 +1,80 @@
+@if $incluir-admin == true{
+
+
+
+
+
+/*------------------------------------*\
+    $ADMINAREA
+\*------------------------------------*/
+
+.admin__block, .form-group {
+    background-color: $white;
+    padding: 0 ($gutterwidth / 2);
+    @extend %clearfix;
+}
+
+    .admin__nav {
+        position: fixed;
+        top:0;
+        bottom: 0;
+        width: 100%;
+        background-color: $white;
+        @include box-shadow(2px 1px 1px rgba(0,0,0,.3));
+        .nav__item--logo {
+            display: none;
+        }
+        .nav__list {
+            display: block; 
+            padding-top: $gutterwidth * 4;
+            top: 0;
+            bottom: auto;
+            width: 100%;
+        }
+        .nav__item {
+            display: block;
+            a {
+                text-align: right;
+                padding-right: $gutterwidth;
+                line-height: 3;
+            }
+            &.active {
+                border-right: 3px solid $basecolor;
+                a {
+                    background-color: lighten($basecolor, 50);
+                }
+            }
+        }
+        @include respond-to(medium){
+                width: 250px;
+                .nav__list {
+                    bottom: auto;
+                    top: 0;
+                    width: 200px; 
+                    padding-top: 0;
+                }
+                .nav__item--logo {
+                    display: block;
+                }
+            }
+    }
+
+    .admin__wrapper {
+        .checkbox-hack__label {
+            bottom: auto;
+            top: $gutterwidth / 2;
+        }
+    }
+        .nav__item--logo {
+            padding: ($gutterwidth / 2) ($gutterwidth / 2) ($gutterwidth / 2) ($gutterwidth * 1.5);
+        }
+
+    .admin__container {
+        padding: ($gutterwidth * 4) $gutterwidth $gutterwidth $gutterwidth;
+        max-width: $pagemaxwidth;
+        @include respond-to(medium) {
+            padding: $gutterwidth ($gutterwidth * 2) $gutterwidth (#{$gutterwidth +  250px});
+        }
+    }
+
+} //endif

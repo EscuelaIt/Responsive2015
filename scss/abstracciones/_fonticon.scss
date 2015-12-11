@@ -1,0 +1,170 @@
+@if $incluir-fonticon == true{
+
+
+
+
+
+/*------------------------------------*\
+    $FUENTES
+\*------------------------------------*/
+/*
+ * Por defecto incluyo una fuente de icomoon (http://icomoon.io/)
+ * con 5 iconos que se encuentra en la carpeta /fonts.
+ * Ve y adàptalos a tu web.
+ */
+@font-face {
+	font-family: 'icomoon';
+	src:url('#{$font-dir}/icomoon.eot');
+	src:url('#{$font-dir}/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('#{$font-dir}/icomoon.woff') format('woff'),
+		url('#{$font-dir}/icomoon.ttf') format('truetype'),
+		url('#{$font-dir}/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	&:before {
+		font-family: 'icomoon';
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		font-size: 1.2em;
+
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+.icon-social-fashionist-1:before {
+	content: "\e902";
+}
+.icon-social-star:before {
+	content: "\e900";
+}
+.icon-social-win:before {
+	content: "\e901";
+}
+.icon-switch:before {
+	content: "\e626";
+}
+.icon-btn-document:before {
+	content: "\e623";
+}
+.icon-btn-photo:before {
+	content: "\e624";
+}
+.icon-btn-video:before {
+	content: "\e625";
+}
+.icon-action-cart:before {
+	content: "\e600";
+}
+.icon-action-clock:before {
+	content: "\e601";
+}
+.icon-action-delete:before {
+	content: "\e602";
+}
+.icon-action-play:before {
+	content: "\e603";
+}
+.icon-action-search:before {
+	content: "\e604";
+}
+.icon-action-share:before {
+	content: "\e605";
+}
+.icon-action-view:before {
+	content: "\e606";
+}
+.icon-editor-attachfile:before {
+	content: "\e607";
+}
+.icon-editor-edit:before {
+	content: "\e608";
+}
+.icon-editor-insertphoto:before {
+	content: "\e609";
+}
+.icon-editor-publish:before {
+	content: "\e60a";
+}
+.icon-image-crop:before {
+	content: "\e60b";
+}
+.icon-navigation-chaevronleftfinish:before {
+	content: "\e60c";
+}
+.icon-navigation-chaevronleftfirst:before {
+	content: "\e60d";
+}
+.icon-navigation-chaevronleft:before {
+	content: "\e60e";
+}
+.icon-navigation-chaevronright:before {
+	content: "\e60f";
+}
+.icon-navigation-close:before {
+	content: "\e610";
+}
+.icon-navigation-dropdown:before {
+	content: "\e611";
+}
+.icon-navigation-dropup:before {
+	content: "\e612";
+}
+.icon-navigation-expandless:before {
+	content: "\e613";
+}
+.icon-navigation-expandmore:before {
+	content: "\e614";
+}
+.icon-navigation-less:before {
+	content: "\e615";
+}
+.icon-navigation-menu:before {
+	content: "\e616";
+}
+.icon-navigation-plus:before {
+	content: "\e617";
+}
+.icon-social-behance:before {
+	content: "\e618";
+}
+.icon-social-codepen:before {
+	content: "\e619";
+}
+.icon-social-dislike:before {
+	content: "\e61a";
+}
+.icon-social-facebook:before {
+	content: "\e61b";
+}
+.icon-social-github:before {
+	content: "\e61c";
+}
+.icon-social-google:before {
+	content: "\e61d";
+}
+.icon-social-instagram:before {
+	content: "\e61e";
+}
+.icon-social-like:before {
+	content: "\e61f";
+}
+.icon-social-pinterest:before {
+	content: "\e620";
+}
+.icon-social-twitter:before {
+	content: "\e621";
+}
+.icon-social-youtube:before {
+	content: "\e622";
+}
+
+} //endif

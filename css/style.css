@@ -1,0 +1,1422 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    $STYLE
+\*------------------------------------*/
+/**
+ * Aquí incluímos todos los módulos (archivos .scss) que se van
+ * a compilar en el CSS definitivo: /css/style.css.
+ */
+/**
+* Librerías
+**/
+/*------------------------------------*\
+    $SETTINGS
+\*------------------------------------*/
+/*------------------------------------*\
+    $OBJETOS Y ABSTRACCIONES
+\*------------------------------------*/
+/**
+ * Qué objetos y abstracciones vamos a usar? (true: se usa, false: no se usa)
+ */
+/**
+ *
+ * Definimos y configuramos las variables CSS que vamos a utilizar
+ *
+ */
+/*------------------------------------*\
+    $BREAKPOINTS
+\*------------------------------------*/
+/**
+ * "Start with the small screen first, then expand until it looks like shit. Time to insert a breakpoint!"
+ * Lo usamos con el mixin respond-to($breakpoint):
+
+.text {
+  color: pink;
+  @include respond-to(medium) {
+    color: maroon;
+  }
+}
+ *
+ */
+/*------------------------------------*\
+    $Z-INDEX
+\*------------------------------------*/
+/**
+ * Podemos controlar los z-index con variables más reconocibles.
+ * Para usarlo, implementamos la función z($layers):
+ .element {
+  z-index: z(goku);
+ }
+ *
+ */
+/*------------------------------------*\
+    $COLORES-SOCIALES
+\*------------------------------------*/
+/* Colores sociales -> son los colores corporativos, pero cambiadlos
+ * si hace falta. (también podéis añadir más)  ///////////////////////
+ */
+/**
+ * Colores para las secciones de la web.
+ */
+/*
+ * Las variables de tamaño las definimos en un MAP, puedes añadir, quitar o cambiarlas.
+ * Vienen dadas en REM. Esto creará una clase con el mismo nombre de la variable:
+
+  .x-small { font-size: .8rem}
+
+ * También podemos asignar tamaños con un función llamada fs:
+
+    .selector { font-size: fs(x-small);}
+
+ *
+ */
+/*------------------------------------*\
+    $DIR
+\*------------------------------------*/
+/**
+ * Con agregar esta variable a las imágenes declaradas en CSS apañamos:
+ */
+/*
+ * Igual para las fuentes
+ */
+/*
+ *   src:url('/Content/fonts/icomoon.eot');
+ *   src:url('/Content/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+ *   url('/Content/fonts/icomoon.woff') format('woff'),
+ *   url('/Content/fonts/icomoon.ttf') format('truetype'),
+ *   url('/Content/fonts/icomoon.svg#icomoon') format('svg');
+*/
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+/**
+ * Definimos elementos constantes del layout
+ */
+/*------------------------------------*\
+    $grid
+\*------------------------------------*/
+/*------------------------------------*\
+    $FONT-FACE
+\*------------------------------------*/
+/**
+ * Definimos las fuentes a utilizar:
+ * $basefont para todos los textos inline
+ * $altfont para textos alternativos, como citas, intro, etc...
+ * $codefont para código
+ */
+/*------------------------------------*\
+    $TAMAÑOS
+\*------------------------------------*/
+/**
+ * Definimos los tamaños de fuentes:
+
+ */
+/*------------------------------------*\
+    $COLORS
+\*------------------------------------*/
+/**
+ * Brand stuff
+ */
+/**
+ * Escala de grises
+ * A veces no queremos que el negro sea "negro" o el blanco "blanco", puedes cambiarlos.
+ */
+/*------------------------------------*\
+    $TEXTURAS
+\*------------------------------------*/
+/**
+ * Definimos Colores y elementos de popups, mensajes de alerta, etc...
+ */
+/*------------------------------------*\
+    $MIXINS
+\*------------------------------------*/
+/*
+* Fácil de usar: las variables a usar están en settings.scss y son:
+
+    'small'  : 48em,
+    'medium' : 56.25em,
+    'large'  : 68.75em,
+
+* Y el uso va como sigue:
+
+.foo {
+  color: red;
+  @include respond-to('small') {
+    color: blue;
+  }
+}
+*/
+/**
+* Centrar y dar un ancho máximo igual a $pagemaxwidth.
+*/
+/*------------------------------------*\
+    $FUNCIONES
+\*------------------------------------*/
+/*
+ * Función para controlar el index
+ 
+ 	.selector { z-index: z(goku);}
+
+ * compila:
+
+	.selector { z-index: 9001;}
+
+ * Puedes ver las variables en el MAP en settings.scss
+ */
+/*
+ * Función para mantener el tamaño de fuente consistente
+
+ .selector { font-size: fs(x-small);}
+
+ * Puedes ver en settings.scss las variables que se utilizan.
+ */
+/*------------------------------------*\
+    $PLACEHOLDERS
+\*------------------------------------*/
+/**
+* The ghost, nudged to maintain perfect centering
+*/
+/**
+* Escondemos el texto solo VISUALMENTE
+*/
+/**
+* Escondemos el texto de VISUALMENTE y SCREENREADERS
+*/
+/**
+* Escondemos pero mantenemos layout.
+*/
+/**
+* Visualmente escondido, pero se puede detectar con teclado (focus).
+*/
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  position: static;
+  clip: auto;
+  height: auto;
+  width: auto;
+  margin: 0;
+  overflow: visible; }
+
+/**
+* Clear floats.
+* http://bit.ly/1e3YaBH
+*/
+/**
+* Bases
+**/
+/*------------------------------------*\
+    $CONTENIDO
+\*------------------------------------*/
+/**
+ * Contenido..................... Esto que lees
+
+ * Variables..................... Configuramos todas las variables del framework
+
+ * Mixins........................ Mixins de SASS
+
+ * Helpers....................... Clases de ayuda
+
+ * Reset......................... Reinicio de valores CSS
+
+ * Fuentes....................... Fuentes que vamos a importar
+
+ * Links......................... Formas y estilos de los links
+
+ * Tablas........................ Estilos de las tablas
+
+ * Botones....................... Estilos de Botones, skins y variantes
+
+ * Elementos..................... Elementos varios como Imagen, HR, etc...
+
+ * Tipografía.................... Encabezados, small, párrafos, listas, etc...
+
+ * Navegación.................... Una navegación, por si quieres usar esta y no la tuya propia
+
+ * Formularios................... Estilos de todos los elementos de formularios y sus variantes
+
+ * Sitio......................... Aquí escribes tus estilos para la web se vea como tú quieres ;)
+
+ * Paginación.................... Estilos básicos para las paginaciones
+
+ * Texturas...................... Badges, cajas y wells
+
+ * Breakpoints................... Importamos breakpoints basados en las variables @bp$
+
+ * Patron........................ Estilos para la guía de patrones
+ */
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, main, menu, nav, section, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block; }
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box; }
+
+img {
+  max-width: 100%;
+  border-width: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+  height: auto; }
+
+/**
+* Selectores de elemento: un super "normalize":
+**/
+/*------------------------------------*\
+    $ELEMENTOS-FIGURE
+\*------------------------------------*/
+/*------------------------------------*\
+    $FORMULARIOS
+\*------------------------------------*/
+form {
+  margin: 0 0 22px 0; }
+  form fieldset {
+    margin-bottom: 1.5em;
+    padding: 0;
+    border-width: 0; }
+  form legend {
+    display: block;
+    width: 100%;
+    margin-bottom: 3em;
+    padding: 0;
+    color: #262626;
+    border: 0;
+    border-bottom: 1px solid #e6e6e6;
+    white-space: normal; }
+    form legend small {
+      font-size: 0.68rem;
+      color: #e6e6e6; }
+  form p {
+    margin-bottom: 0.75em; }
+  form ul {
+    list-style-type: none;
+    margin: 0 0 1.5em 0;
+    padding: 0; }
+  form br {
+    display: none; }
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 1rem;
+  border-radius: 0;
+  vertical-align: baseline;
+  margin-bottom: 11px; }
+
+input,
+button,
+select,
+textarea {
+  font-family: Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+label, .label {
+  display: inline-block;
+  margin-bottom: 0.1875em;
+  color: #262626;
+  cursor: pointer; }
+  label input,
+  label textarea,
+  label select, .label input,
+  .label textarea,
+  .label select {
+    display: block; }
+
+input,
+textarea,
+select {
+  display: inline-block;
+  width: 100%;
+  padding: 0 4px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
+  color: #262626;
+  line-height: 2.25em;
+  font-size: 1rem;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+  input:hover,
+  textarea:hover,
+  select:hover {
+    border-color: gray; }
+
+.input--mini {
+  width: 60px; }
+
+.input--small {
+  width: 90px; }
+
+.input--medium {
+  width: 200px; }
+
+input[type="image"],
+input[type="checkbox"],
+input[type="radio"] {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  margin: 3px 0;
+  line-height: normal;
+  cursor: pointer;
+  border: 0 \9;
+  background-color: white; }
+  input[type="image"]:checked,
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background-color: #A93667;
+    border-color: white;
+    border-width: 2px;
+    box-shadow: 0 0 0 1px #A93667;
+    width: 20px;
+    height: 20px; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline-block;
+  padding: 0; }
+
+input[type="image"] {
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+input[type="file"] {
+  width: auto;
+  padding: initial;
+  line-height: initial;
+  border: initial;
+  background-color: transparent;
+  background-color: initial;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 0 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+select,
+input[type="file"] {
+  height: 28px;
+  *margin-top: 4px;
+  line-height: 28px; }
+
+select {
+  background-color: white;
+  font-size: 0.85rem; }
+
+select[multiple],
+select[size] {
+  height: auto; }
+
+textarea {
+  resize: vertical;
+  overflow: auto;
+  height: auto;
+  overflow: auto;
+  vertical-align: top; }
+
+input[type="hidden"] {
+  display: none; }
+
+input[disabled],
+select[disabled],
+textarea[disabled],
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  cursor: not-allowed; }
+
+input:focus,
+textarea:focus {
+  border-color: #A93667, 40%;
+  outline: 0;
+  outline: thin dotted \9; }
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+select:focus {
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+::-webkit-input-placeholder {
+  font-size: 0.85rem; }
+
+input:-moz-placeholder {
+  font-size: 0.85rem; }
+
+.form-inline {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center; }
+  .form-inline input[type="text"] {
+    width: 100%;
+    margin-right: 11px; }
+  .form-inline label {
+    display: none;
+    width: 200px;
+    margin-right: 11px; }
+    @media screen and (min-width: 31em) {
+      .form-inline label {
+        display: inline-block; } }
+  .form-inline input[type="submit"], .form-inline .btn, .form-inline button {
+    width: 180px;
+    margin-right: 11px; }
+  .form-inline.newsletter {
+    display: none; }
+    @media screen and (min-width: 31em) {
+      .form-inline.newsletter {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex; } }
+
+.form-inline input,
+.form-inline textarea,
+.form-inline select {
+  display: inline-block;
+  margin-bottom: 0;
+  vertical-align: baseline; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 11px; }
+
+.date-part, .time-part {
+  margin-bottom: 11px; }
+  .date-part input, .date-part select, .time-part input, .time-part select {
+    width: 80px;
+    margin: 0 5.5px; }
+  .date-part small, .time-part small {
+    display: inline-block;
+    width: 40px; }
+
+.checkbox {
+  vertical-align: top; }
+  .checkbox input[type="checkbox"] {
+    vertical-align: top; }
+
+/**
+* Validamos los formularios que son "required":
+* http://coolvillage.es/ayuda-al-usuario-a-rellenar-formularios-con-css/
+*/
+input:required:focus:invalid {
+  background-color: #fef2e7;
+  border: 1px solid #fce4cf; }
+
+input:required:focus:valid {
+  background-color: white;
+  border: 1px solid #87d873; }
+
+/*------------------------------------*\
+    $IMÁGENES
+\*------------------------------------*/
+/*------------------------------------*\
+    $LINKS
+\*------------------------------------*/
+a {
+  text-decoration: underline;
+  color: #262626; }
+  a:visited {
+    color: #262626; }
+  a:hover {
+    text-decoration: underline; }
+  a:focus {
+    outline: thin dotted;
+    color: #822a4f; }
+  a:hover, a:active {
+    outline: 0; }
+
+/*------------------------------------*\
+    $TIPOGRAFÍA
+\*------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 300;
+  color: inherit;
+  text-rendering: optimizelegibility; }
+  h1.altheader,
+  h2.altheader,
+  h3.altheader,
+  h4.altheader,
+  h5.altheader,
+  h6.altheader {
+    color: gray;
+    text-transform: uppercase; }
+
+h1 small,
+h2 small,
+h3 small,
+h6 small {
+  font-weight: normal;
+  display: block;
+  color: gray; }
+
+h1, .h1 {
+  margin-bottom: 0.75em;
+  font-size: 1.8rem;
+  line-height: 1.2; }
+
+h2, .h2 {
+  margin-bottom: 0.75em;
+  font-size: 1.2rem;
+  line-height: 1.2; }
+
+h3, .h3 {
+  margin-bottom: 0.75em;
+  font-size: 1.6rem;
+  line-height: 1.3; }
+
+h4, .h4 {
+  margin-bottom: 0.75em;
+  font-size: 1.4rem;
+  line-height: 1.25; }
+
+h5, .h5 {
+  margin-bottom: 0.75em;
+  font-size: 1.2rem;
+  line-height: 1; }
+
+h6, .h6 {
+  margin-bottom: 0.75em;
+  font-size: 1rem;
+  line-height: 1; }
+
+.bordered-header {
+  border-bottom: 3px solid #ebebeb; }
+
+p,
+ol,
+ul,
+dl,
+address {
+  margin-bottom: 1.5em;
+  line-height: 1.5em; }
+
+small {
+  font-size: 0.68rem;
+  color: gray; }
+
+ul,
+ol {
+  margin: 0 0 1.5em 0;
+  padding: 0 0 0 22px; }
+
+li ul,
+li ol {
+  margin: 0; }
+
+blockquote {
+  margin: 0 0 1.5em 0;
+  padding-left: 22px;
+  border-left: 2px solid #ebebeb;
+  font-family: Georgia, Times, "Times New Roman";
+  font-style: normal; }
+  blockquote p {
+    font-size: 1.5rem;
+    color: gray;
+    font-style: italic; }
+
+q {
+  quotes: none;
+  font-style: italic; }
+
+blockquote p::before,
+blockquote p::after,
+q:before,
+q:after {
+  content: ""; }
+
+cite {
+  font-style: normal; }
+
+dl,
+dd {
+  margin-bottom: 1.5em; }
+
+dt {
+  font-weight: bold; }
+
+.dl-horizontal dt {
+  float: left;
+  clear: left;
+  width: 20.25%;
+  text-align: right; }
+.dl-horizontal dd {
+  margin-left: 22.78%; }
+
+abbr[title] {
+  border-bottom: 1px dotted #ebebeb;
+  cursor: help; }
+
+b, strong {
+  font-weight: bold; }
+
+dfn {
+  font-style: italic; }
+
+ins {
+  background-color: white;
+  color: #262626;
+  text-decoration: none; }
+
+mark {
+  background-color: yellow;
+  color: #262626; }
+
+pre,
+code,
+kbd,
+samp {
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.5em; }
+
+pre {
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+sub,
+sup {
+  position: relative;
+  font-size: 0.68rem;
+  line-height: 0;
+  vertical-align: 1.5em; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+hr {
+  clear: both;
+  display: block;
+  margin: 3em 0;
+  padding: 0;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ebebeb; }
+
+/*
+ * Creamos clases para cada uno de los tamaños de fuentes. Se pueden ver en Settings.
+ * Son los nombres de las varables con el prefijo font-
+ * Por ejemplo:
+
+        .font-x-small {
+            font-size: .8rem;
+        }
+
+
+ */
+.font-x-small {
+  font-size: 0.68rem; }
+
+.font-small {
+  font-size: 0.85rem; }
+
+.font-normal {
+  font-size: 1rem; }
+
+.font-big {
+  font-size: 1.5rem; }
+
+.font-huge {
+  font-size: 2rem; }
+
+.font-extreme {
+  font-size: 3rem; }
+
+/**
+* Layout del sitio
+**/
+/*------------------------------------*\
+    $SITIO
+\*------------------------------------*/
+@-webkit-viewport {
+  width: device-width; }
+@-moz-viewport {
+  width: device-width; }
+@-ms-viewport {
+  width: device-width; }
+@-o-viewport {
+  width: device-width; }
+@viewport {
+  width: device-width; }
+html {
+  background: #fafafa;
+  font-size: 120%;
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  min-height: 100%;
+  height: 100%; }
+  @media screen and (min-width: 29em) {
+    html {
+      font-size: 100%; } }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+  font-family: Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
+  line-height: 1.5em;
+  color: #262626;
+  min-height: 100%;
+  height: 100%; }
+
+/**
+* A partir de aquí es donde debes escribir los estilos de posicionamiento
+* y detalles que forman tu web. Disfruta!
+*/
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+.header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+  box-shadow: 2px 0 3px 3px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000; }
+  @media screen and (min-width: 31em) {
+    .header {
+      position: relative;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      margin-bottom: 22px; } }
+
+.header__logo {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-basis: 100%;
+  -moz-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  padding-left: 11px; }
+  .header__logo img {
+    width: 100%; }
+  @media screen and (min-width: 29em) {
+    .header__logo img {
+      width: 120px; } }
+
+.header__userzone {
+  width: 1524px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end; }
+  @media screen and (min-width: 29em) {
+    .header__userzone {
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      -webkit-justify-content: flex-start;
+      -moz-justify-content: flex-start;
+      justify-content: flex-start; } }
+
+.header__social {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-flex-basis: 100%;
+  -moz-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end;
+  padding-right: 11px; }
+  @media screen and (min-width: 29em) {
+    .header__social {
+      -webkit-box-pack: flex-star;
+      -ms-flex-pack: flex-star;
+      -webkit-justify-content: flex-star;
+      -moz-justify-content: flex-star;
+      justify-content: flex-star; } }
+
+.header__actions {
+  padding: 11px 48px 11px 11px;
+  min-width: 220px; }
+  .header__actions .btn {
+    padding-left: .2em;
+    padding-right: .2em; }
+  @media screen and (min-width: 29em) {
+    .header__actions {
+      padding: 11px; }
+      .header__actions .btn {
+        padding-left: 1em;
+        padding-right: 1em; } }
+
+.header__actions__avatar {
+  display: inline-block;
+  width: 42px;
+  max-width: 42px;
+  padding-left: 0 !important;
+  padding-right: 0 !important; }
+  .header__actions__avatar img {
+    width: 42px; }
+  @media screen and (min-width: nav) {
+    .header__actions__avatar {
+      width: 35px;
+      max-width: 35px; }
+      .header__actions__avatar img {
+        width: 36px; } }
+
+.header__search {
+  display: none;
+  margin-bottom: 0; }
+  @media screen and (min-width: 29em) {
+    .header__search {
+      display: block;
+      -webkit-flex-basis: 100%;
+      -moz-flex-basis: 100%;
+      -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+      padding: 11px;
+      border-left: 1px solid #ebebeb;
+      border-right: 1px solid #ebebeb; }
+      .header__search input {
+        margin-bottom: 0; } }
+
+.topbar {
+  width: 100%;
+  padding-left: calc((100% - 1200px) / 2);
+  padding-right: calc((100% - 1200px) / 2);
+  background-color: white;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  margin-bottom: 1.5em;
+  margin-top: -22px; }
+
+/*------------------------------------*\
+    $NAVEGACIÓN
+\*------------------------------------*/
+.nav {
+  position: fixed;
+  bottom: 13px;
+  right: 11px;
+  z-index: 8000;
+  width: 44px;
+  height: 42px;
+  color: white;
+  overflow: hidden;
+  cursor: pointer; }
+  .nav:after {
+    content: "☰";
+    color: white;
+    font-size: 24px;
+    width: 1em;
+    line-height: 1;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px; }
+
+@media all and (min-width: 540px) {
+  .nav {
+    position: static;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    height: auto; } }
+.nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 42px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #A93667;
+  width: 200px;
+  z-index: -1; }
+
+@media all and (min-width: 540px) {
+  .nav__list {
+    position: static;
+    bottom: auto;
+    right: auto;
+    padding-bottom: 0;
+    display: table;
+    table-layout: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800px;
+    width: 100%; } }
+.nav__item {
+  border-bottom: 1px solid #fafafa; }
+  .nav__item a {
+    display: block;
+    padding-left: 22px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 2;
+    font-size: 1rem;
+    background-color: white;
+    color: #262626; }
+    .nav__item a:hover {
+      text-decoration: none; }
+  .nav__item.selected {
+    background-color: #df99b7;
+    border-left: 3px solid #A93667; }
+
+@media all and (min-width: 540px) {
+  .nav__item {
+    display: table-cell;
+    border: 1px solid #e6e6e6; }
+    .nav__item a {
+      padding: 0;
+      text-align: center; } }
+.checkbox__hack {
+  display: none !important;
+ /*
+  * Quitamos el overflow:hidden para que se muestre el menú cuando
+* el checkbox está :checked
+  * Eso es todo, un overflow. Con eso mostramos u ocultamos el menú.
+  * (Eso y el content del after para que sea una X y no la hamburguesa)
+  */ }
+  .checkbox__hack:checked ~ .nav {
+    overflow: visible; }
+    .checkbox__hack:checked ~ .nav::after {
+      content: "x";
+      left: 50%; }
+
+.checkbox-hack__label {
+  position: fixed;
+  bottom: 11px;
+  right: 11px;
+  width: 44px;
+  height: 42px;
+  color: white;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  z-index: 9001; }
+
+/*------------------------------------*\
+    $ARTICLES
+\*------------------------------------*/
+/**
+* Bloques con elementos, deben tener la siguiente estructura
+* para que sean igual que los que salen en la home:
+
+		<article class="article">
+
+    		<h2 class="article__header category-video">grid__item-4</h2>
+
+    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
+
+    		<figure class="article__figure">
+    			<img src="../img/testavatar.jpg" alt="">
+    			<figcaption>
+    				Ocupa una 4ta parte: <code>item-4</code
+    			</figcaption>
+    		</figure>
+
+    		<footer class="article__footer">
+    			Call to action
+    		</footer>
+
+    	</article>
+
+**/
+.article {
+  background-color: white;
+  padding: 11px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 22px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+
+.article__header {
+  font-size: 1rem;
+  margin-bottom: 11px;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: uppercase;
+  background-color: #df99b7;
+  color: #A93667; }
+  .article__header a {
+    color: #A93667;
+    text-decoration: none; }
+
+.article__pic {
+  margin-bottom: 5.5px; }
+
+.article__figure {
+  display: table;
+  margin-bottom: 5.5px;
+  height: 44px;
+  width: 100%; }
+  .article__figure .article__figure__imagelink {
+    display: inline-block;
+    vertical-align: top;
+    width: 44px;
+    margin-bottom: 0;
+    height: 44px;
+    overflow: hidden; }
+    @media screen and (min-width: 29em) {
+      .article__figure .article__figure__imagelink {
+        width: 44px; } }
+    .article__figure .article__figure__imagelink img {
+      width: 44px; }
+
+.article__figcaption {
+  display: table-cell;
+  position: relative;
+  vertical-align: top;
+  color: #262626;
+  font-style: normal;
+  padding: 0 5.5px 0;
+  line-height: 1;
+  margin-bottom: 5.5px;
+  width: 100%; }
+  @media screen and (min-width: 29em) {
+    .article__figcaption {
+      font-size: 0.85rem; } }
+  .article__figcaption a {
+    text-decoration: none; }
+
+.article__description {
+  overflow: hidden;
+  position: relative;
+  padding-right: 1em;
+  max-height: 28px; }
+
+.article__price {
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  line-height: 2;
+  width: 100%;
+  text-align: right;
+  color: red;
+  font-size: 0.85rem;
+  font-weight: bold; }
+
+.article__price--oldprice {
+  color: black;
+  text-decoration: line-through;
+  margin-right: 1em; }
+
+.article__categories {
+  padding-left: 2px; }
+
+.article__footer .btn--block {
+  font-size: 0.68rem; }
+
+.article__tags {
+  margin-bottom: 5.5px; }
+
+.grid__item-2 .article__footer {
+  width: 100%;
+  float: right; }
+  @media screen and (min-width: 29em) {
+    .grid__item-2 .article__footer {
+      width: calc(50% - 22px * 1px); } }
+
+/* Debe llevar esta clase cuando es un video
+ * y el resto igual que el article normal
+ */
+.article--video {
+  position: relative; }
+  .article--video .article__pic__container {
+    position: relative; }
+    .article--video .article__pic__container > img {
+      -webkit-filter: sepia(1) hue-rotate(200deg) grayscale(0.4);
+      filter: sepia(1) hue-rotate(200deg) grayscale(0.4); }
+    .article--video .article__pic__container:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -60%);
+      -moz-transform: translate(-50%, -60%);
+      -ms-transform: translate(-50%, -60%);
+      -o-transform: translate(-50%, -60%);
+      transform: translate(-50%, -60%);
+      display: block;
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      border: 5px solid white;
+      background-color: #A93667;
+      -webkit-opacity: 0.5;
+      -moz-opacity: 0.5;
+      opacity: 0.5; }
+    .article--video .article__pic__container:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-40%, -75%);
+      -moz-transform: translate(-40%, -75%);
+      -ms-transform: translate(-40%, -75%);
+      -o-transform: translate(-40%, -75%);
+      transform: translate(-40%, -75%);
+      width: 0;
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 30px solid white;
+      z-index: 9001; }
+
+		/* Tenemos el article para los productos.
+		 * Diferente ya que es más simple, su estructura
+		 * es como sigue:
+
+		 	<article class="article article--product">
+	    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
+
+	    		<footer class="article__footer">
+	    			Call to action
+	    		</footer>
+	    	</article>
+		 */
+.article--product {
+  background-color: #c2d9d3;
+  padding: 5.5px;
+  height: 350px; }
+  @media screen and (min-width: 31em) {
+    .article--product {
+      height: 310px; } }
+  .article--product .article__figcaption {
+    background-color: white;
+    color: #262626;
+    text-transform: lowercase;
+    width: 100%;
+    display: block;
+    height: 91px; }
+    @media screen and (min-width: 31em) {
+      .article--product .article__figcaption {
+        height: 51px; } }
+  .article--product .article__pic__container {
+    height: 213px;
+    overflow: hidden;
+    background-color: white;
+    margin-bottom: 5.5px; }
+  .article--product .article__footer {
+    position: absolute;
+    bottom: 5.5px;
+    left: 5.5px;
+    right: 5.5px;
+    width: auto; }
+
+.article__fashionist .article__figcaption {
+  line-height: 1.5;
+  font-size: 1rem;
+  height: 40px; }
+
+.article--product--madaish {
+  background-color: #ebc0d2; }
+  .article--product--madaish:before {
+    content: "Recomendación Madaísh";
+    position: absolute;
+    top: 205px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.68rem;
+    color: white;
+    background-color: #ebc0d2;
+    line-height: 1.5; }
+
+.article__status {
+  position: absolute;
+  top: 46px;
+  right: 11px;
+  background-color: #A93667;
+  color: white;
+  padding: 2px 5px;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  box-shadow: 1px -1px solid rgba(0, 0, 0, 0.3);
+  z-index: 8000; }
+
+.article__status--public {
+  background-color: #87d873;
+  border-bottom: 1px solid #4bb332;
+  border-left: 1px solid #4bb332; }
+
+.article__status--draft {
+  background-color: #fafafa;
+  color: #A93667; }
+
+/**
+* Abstracciones y objetos
+**/
+/*------------------------------------*\
+    $CATEGORY COLORS
+\*------------------------------------*/
+/**
+ * Colores para las secciones, sólo añadid el color al mapa en _settings.scss,
+ * y para usarlo le ponemos el prefijo "category". Así por
+ * ejemplo para dar el color a un encabezado de la categoría looks:
+
+  <h2 class="category-looks">Título </h2>
+
+ */
+.category-video {
+  background-color: #f6d8a0;
+  color: #8a5e0d; }
+  .category-video a, .category-video:visited, .category-video a:visited {
+    color: #8a5e0d; }
+
+.category-looks {
+  background-color: #a3cbd1;
+  color: #27494e; }
+  .category-looks a, .category-looks:visited, .category-looks a:visited {
+    color: #27494e; }
+
+.category-moda {
+  background-color: #fcf1bc;
+  color: #b19408; }
+  .category-moda a, .category-moda:visited, .category-moda a:visited {
+    color: #b19408; }
+
+.category-belleza {
+  background-color: #fbd4b5;
+  color: #a84f09; }
+  .category-belleza a, .category-belleza:visited, .category-belleza a:visited {
+    color: #a84f09; }
+
+.category-lifestyle {
+  background-color: #d97690;
+  color: #3f111d; }
+  .category-lifestyle a, .category-lifestyle:visited, .category-lifestyle a:visited {
+    color: #3f111d; }
+
+.category-base {
+  background-color: #A93667;
+  color: black; }
+  .category-base a, .category-base:visited, .category-base a:visited {
+    color: black; }
+
+/*------------------------------------*\
+    $STEPS
+\*------------------------------------*/
+/**
+ * Any step formulary indicator
+ */
+.steps {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  background-color: white;
+  padding: 11px;
+  margin-bottom: 11px; }
+
+.steps__item {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -moz-box-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-top: 4px solid #ebc0d2;
+  margin-right: 2px;
+  color: #e6e6e6; }
+  .steps__item:last-child {
+    margin-right: 0; }
+  .steps__item.selected {
+    border-top: 4px solid #A93667;
+    color: #262626; }

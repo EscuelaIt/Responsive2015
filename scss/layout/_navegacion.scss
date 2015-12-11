@@ -1,0 +1,145 @@
+@if $incluir-navegacion == true{
+
+
+
+
+
+/*------------------------------------*\
+    $NAVEGACIÓN
+\*------------------------------------*/
+
+.nav {
+    position: fixed;
+    bottom: 13px;
+    right: $gutterwidth / 2;
+    z-index: z(shoryuken);
+    width:  $nav-width;
+    height: $nav-height;
+    color: $nav-color;
+    overflow: hidden;
+    cursor: pointer;
+
+
+
+    &:after {
+        content: "☰";
+        color: $white;
+        font-size: $nav-icon-size;
+        width: 1em;
+        line-height: 1;
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top:  -($nav-icon-size / 2);
+        margin-left: -($nav-icon-size / 2);
+     }
+}
+
+@media all and (min-width: 540px) {
+    .nav {
+        position: static;
+        bottom: auto;
+        right: auto;
+        width:  100%;
+        height: auto;
+    }
+}
+
+    .nav__list {
+        list-style: none;
+        margin:  0;
+        padding: 0;
+        //Este padding top baja el contenido respecto a la hamburguesa
+        padding-bottom: $nav-height;
+        position: absolute;
+        bottom:   0;
+        right:  0;
+        background-color: $basecolor;
+        width: 200px;
+        z-index: -1;
+    }
+    @media all and (min-width: 540px) {
+        .nav__list {
+            position: static;
+            bottom:   auto;
+            right:  auto;
+            padding-bottom: 0;
+            display: table;
+            table-layout: fixed;
+            @include max-width(800px);
+        }
+    }
+
+        .nav__item {
+            border-bottom: 1px solid $lightergrey;
+            a {
+                display: block;
+                padding-left: $gutterwidth;
+                text-transform: uppercase;
+                text-decoration: none;
+                line-height: 2;
+                font-size: fs(normal);
+                background-color: $white;
+                color: $textcolor;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            &.selected {
+                background-color: lighten($basecolor, 30);
+                border-left: 3px solid $basecolor;
+            }
+
+        }
+        @media all and (min-width: 540px) {
+            .nav__item {
+                display: table-cell;
+                border: 1px solid $lightgrey;
+                a {
+                    padding: 0;
+                    text-align: center;
+                }
+            }
+        }
+// Ocultamos el checkbox
+     .checkbox__hack {
+        display: none!important;
+
+        /*
+         * Quitamos el overflow:hidden para que se muestre el menú cuando
+       * el checkbox está :checked
+         * Eso es todo, un overflow. Con eso mostramos u ocultamos el menú.
+         * (Eso y el content del after para que sea una X y no la hamburguesa)
+         */
+
+        &:checked {
+            ~ .nav {
+              overflow: visible;
+              .nav__list {
+
+              }
+
+              &::after {
+                content:"x";
+                left: 50%;
+              }
+            }
+         }
+     }
+
+
+ // Estilizamos el label para que aparezca JUSTO encima de la navegación
+     .checkbox-hack__label {
+        position: fixed;
+        bottom: $gutterwidth / 2;
+        right: $gutterwidth / 2;
+        width:  $nav-width;
+        height: $nav-height;
+        color: $nav-color;
+        overflow: hidden;
+        cursor: pointer;
+        margin:0;
+        z-index: z(goku);
+     }
+} //endif

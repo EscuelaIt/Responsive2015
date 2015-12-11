@@ -1,0 +1,62 @@
+@if $incluir-abstracciones == true{
+
+/*------------------------------------*\
+    $ABSTRACIONES
+\*------------------------------------*/
+/*
+*
+* Abstracciones usadas a lo largo del layout, os dejo algunas de ejemplo
+* pero borradlas y añadid las que necesitéis
+*/
+
+.float-right{
+    float:right;
+}
+
+// Para cuando queremos tener varios elementos en inline-block:
+.inline-block {
+    display: inline-block;
+}
+
+// Diferentes especificaciones para márgenes
+.nomargin-bottom {
+    margin-bottom: 0;
+}
+
+.margin-left {
+    margin-left: $gutterwidth;
+}
+.margin-bottom {
+    margin-bottom: $gutterwidth;
+}
+
+.margin-bottom-xl {
+    margin-bottom: $gutterwidth * 2;
+}
+
+.padding-top {
+    padding-top: $gutterwidth / 2;
+}
+// Anchos
+
+.maxwidth {
+    @include max-width;
+}
+
+// Alineamientos
+
+.align-right {
+    text-align: right;
+}
+
+// display:
+
+.inline-block {
+    display: inline-block;
+}
+
+// Listas sin estilos:
+.list-no-style {
+    list-style-type: none;
+}
+} // if

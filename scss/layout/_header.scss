@@ -1,0 +1,127 @@
+
+
+
+
+
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+
+
+.header {
+	@include flexbox;
+	border-bottom: 1px solid $bordercolor;
+	box-shadow: 2px 0 3px 3px rgba(0,0,0,0.1);
+	background-color: $white;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: z(shoryuken);
+
+	@include respond-to(medium) {
+		position: relative;
+		bottom: auto;
+		left: auto;
+		right: auto;
+		margin-bottom: $gutterwidth;
+	}
+}
+
+	.header__logo {
+		@include flexbox;
+		@include flex-basis(100%);
+		@include align-items(center);
+		padding-left: $gutterwidth /2;
+
+		img {
+			width: 100%;
+		}
+		@include respond-to(small) {
+			img {
+				width: 120px;
+
+			}
+		}
+	}
+
+	.header__userzone {
+		width:1524px;
+		@include flexbox;
+		@include justify-content(flex-end);
+		@include respond-to(small) {
+			@include flex-wrap(wrap);
+			@include justify-content(flex-start);
+		}
+	}
+		.header__social {
+			@include flexbox;
+			@include align-items(center);
+			@include flex-basis(100%);
+			@include justify-content(flex-end);
+			padding-right: $gutterwidth / 2;
+
+			@include respond-to(small) {
+				@include justify-content(flex-star);
+			}
+		}
+			.header__actions {
+				padding: ($gutterwidth / 2) 48px ($gutterwidth / 2) ($gutterwidth / 2);
+				min-width: 220px;
+				.btn {
+					padding-left: .2em;
+					padding-right: .2em;
+				}
+				@include respond-to(small) {
+					padding: ($gutterwidth / 2);
+					.btn {
+						padding-left: 1em;
+						padding-right: 1em;
+					}
+				}
+			}
+				.header__actions__avatar {
+					display: inline-block;
+					width: 42px;
+					max-width: 42px;
+					padding-left: 0!important;
+					padding-right: 0!important;
+					img {
+						width: 42px;
+					}
+					@include respond-to(nav) {
+						width: 35px;
+						max-width: 35px;
+
+						img {
+							width: 36px;
+						}
+					}
+
+				}
+			.header__search {
+				display: none;
+				margin-bottom: 0;
+				@include respond-to(small) {
+					display: block;
+					@include flex-basis(100%);
+					padding: $gutterwidth / 2;
+					border-left: 1px solid $bordercolor;
+					border-right: 1px solid $bordercolor;
+					input {
+						margin-bottom: 0;
+					}
+				}
+			}
+
+
+// Topbar after header, may contain breadcumb, Newsletter form, or anything.
+.topbar {
+	@include full-centered;
+	background-color: $white;
+	padding-top: $gutterwidth / 2;
+	padding-bottom: $gutterwidth / 2;
+	margin-bottom: $baselineheight;
+	margin-top: $gutterwidth * -1;
+
+}

@@ -1,0 +1,30 @@
+@if $incluir-cookies == true{
+
+
+.cookies-law {
+    position: fixed;
+    z-index: z(goku);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f6dfe5;
+    padding: $gutterwidth / 4;
+    text-align: center;
+    a {
+        display: inline-block;
+        margin: 0 $gutterwidth / 2;
+    }
+    > div {
+        padding: $gutterwidth;
+        vertical-align: middle;
+        font-size: fs(small);
+    }
+}
+
+
+/*------------------------------------*\
+    $COOKIES-SIGN
+\*------------------------------------*/
+
+
+}
