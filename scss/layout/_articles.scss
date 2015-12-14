@@ -6,273 +6,34 @@
 /*------------------------------------*\
     $ARTICLES
 \*------------------------------------*/
-
-/**
-* Bloques con elementos, deben tener la siguiente estructura
-* para que sean igual que los que salen en la home:
-
-		<article class="article">
-
-    		<h2 class="article__header category-video">grid__item-4</h2>
-
-    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
-
-    		<figure class="article__figure">
-    			<img src="../img/testavatar.jpg" alt="">
-    			<figcaption>
-    				Ocupa una 4ta parte: <code>item-4</code
-    			</figcaption>
-    		</figure>
-
-    		<footer class="article__footer">
-    			Call to action
-    		</footer>
-
-    	</article>
-
-**/
-
-	.article {
-		background-color: $white;
-		padding: $gutterwidth / 2;
-		position: relative;
-		z-index: z(default);
-		margin-bottom: $gutterwidth;
-		box-shadow: 0 0 1px rgba(0,0,0,0.1);
+.article-home {
+	width: 100%;
+	padding: $gutterwidth / 2;
+	background-color: #ededed;
+	margin-bottom: 1em;
+}
+@media all and (min-width: 540px) {
+	.article-home {
+		width: 100%;
+		max-width: 50%;
+		display: inline-block;
+		vertical-align: top;
 	}
+}
 
-
-		.article__header {
-			font-size: fs(normal);
-			margin-bottom: $gutterwidth / 2;
-			text-align: center;
-			line-height: 1.5;
-			text-transform: uppercase;
-			background-color: lighten($basecolor, 30);
-			color: $basecolor;
-			a {
-				color: $basecolor;
-				text-decoration: none;
-			}
+@media all and (min-width: 700px) {
+	.article-home {
+		display: inline-block;
+		width: 50%;
+		height: 270px;
+		vertical-align: top;
+	}
+}
+	.article-home__header {
+		background-color: $basecolor;
+		color: lighten($basecolor, 50);
+		padding-left: .5em;
+		h2 {
+			line-height: 2;
 		}
-
-		.article__pic {
-			margin-bottom: $gutterwidth / 4;
-		}
-		.article__figure {
-			display: table;
-			margin-bottom: $gutterwidth / 4;
-			height: 44px;
-			width: 100%;
-
-			.article__figure__imagelink {
-				display: inline-block;
-				vertical-align: top;
-				width: 44px;
-				margin-bottom: 0;
-				height: 44px;
-				overflow: hidden;
-				@include respond-to(small) {
-					width: 44px;
-				}
-				img {
-					width: 44px;
-				}
-			}
-		}
-			.article__figcaption {
-				display: table-cell;
-				position: relative;
-				vertical-align: top;
-				color: $textcolor;
-				font-style: normal;
-				padding: 0 ($gutterwidth / 4) 0;
-				line-height: 1;
-				margin-bottom: $gutterwidth / 4;
-				width: 100%;
-				@include respond-to(small) {
-					font-size: fs(small);
-				}
-				a {
-					text-decoration: none;
-				}
-			}
-
-				.article__description {
-					overflow: hidden;
-					position: relative;
-					padding-right: 1em;
-					max-height: 28px;
-				}
-				.article__price {
-					position: absolute;
-					bottom: 0px;
-					right: 5px;
-					line-height: 2;
-					width: 100%;
-					text-align: right;
-					color: red;
-					font-size: fs(small);
-					font-weight: bold;
-				}
-					.article__price--oldprice {
-						color: $black;
-						text-decoration: line-through;
-						margin-right: 1em;
-					}
-		.article__categories {
-		    padding-left: 2px;
-		}
-		.article__footer {
-			.btn--block {
-				font-size: fs(x-small);
-			}
-		}
-			.article__tags {
-				margin-bottom: $gutterwidth / 4;
-			}
-			.grid__item-2 .article__footer {
-				width: 100%;
-				float: right;
-				@include respond-to(small) {
-					width: calc(50% - #{$gap} * 1px);
-				}
-			}
-		/* Debe llevar esta clase cuando es un video
-		 * y el resto igual que el article normal
-		 */
-		.article--video {
-			position: relative;
-			.article__pic__container {
-				position: relative;
-
-				> img {
-					-webkit-filter: sepia(1) hue-rotate(200deg) grayscale(.4);
-	    			filter: sepia(1) hue-rotate(200deg) grayscale(.4);
-				}
-				&:after {
-					content: "";
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					@include translate(-50%, -60%);
-					display: block;
-					width: 100px;
-					height: 100px;
-					border-radius: 100%;
-					border: 5px solid $white;
-					background-color: $basecolor;
-					@include opacity(.5);
-				}
-				&:before {
-					content: "";
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					@include translate(-40%, -75%);
-					width: 0;
-					height: 0;
-					border-top: 20px solid transparent;
-					border-bottom: 20px solid transparent;
-					border-left: 30px solid $white;
-					z-index: z(goku);
-				}
-			}
-		}
-
-
-		/* Tenemos el article para los productos.
-		 * Diferente ya que es más simple, su estructura
-		 * es como sigue:
-
-		 	<article class="article article--product">
-	    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
-
-	    		<footer class="article__footer">
-	    			Call to action
-	    		</footer>
-	    	</article>
-		 */
-
-		.article--product {
-			background-color: $secondary;
-			padding: $gutterwidth / 4;
-			height: 350px;
-			@include respond-to(medium) {
-				height: 310px;
-			}
-			.article__figcaption {
-				background-color: $white;
-				color: $textcolor;
-				text-transform: lowercase;
-				width: 100%;
-				display: block;
-				height: 91px;
-				@include respond-to(medium) {
-					height: 51px;
-				}
-			}
-
-			.article__pic__container {
-				height: 213px;
-				overflow: hidden;
-				background-color: $white;
-				margin-bottom: $gutterwidth / 4;
-			}
-			.article__footer {
-				position: absolute;
-				bottom: $gutterwidth / 4;
-				left:$gutterwidth / 4;
-				right: $gutterwidth / 4;
-				width: auto;
-			}
-		}
-
-
-		.article__fashionist {
-			.article__figcaption {
-				line-height: 1.5;
-				font-size: fs(normal);
-				height: 40px;
-			}
-		}
-
-
-		.article--product--madaish {
-			background-color: lighten($basecolor, 40);
-			&:before {
-				content: "Recomendación Madaísh";
-				position: absolute;
-				top: 205px;
-				left: 0;
-				right: 0;
-				text-align: center;
-				font-size: fs(x-small);
-				color: $white;
-				background-color: lighten($basecolor, 40);
-				line-height: 1.5;
-			}
-		}
-
-
-				.article__status {
-					position: absolute;
-					top: 46px;
-					right: $gutterwidth / 2;
-					background-color: $basecolor;
-					color: $white;
-					padding: 2px 5px;
-					text-transform: uppercase;
-					font-size: fs(x-small);
-					box-shadow: 1px -1px solid rgba(0,0,0,0.3);
-					z-index: z(shoryuken);
-				}
-					.article__status--public {
-						background-color: $color-success;
-						border-bottom: 1px solid darken($color-success, 20);
-						border-left: 1px solid darken($color-success, 20);
-					}
-					.article__status--draft {
-						background-color: $lightergrey;
-						color: $basecolor;
-					}
+	}

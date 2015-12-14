@@ -53,6 +53,47 @@
 	}
 }
 
+
+/*------------------------------------*\
+    $BOTONES-CLASE
+\*------------------------------------*/
+/**
+ * Estos son los botones creados para ejemplificar componentes 
+ * con unidades de medida "em"
+ *
+ */
+
+.btn--component {
+    position: relative;
+    margin-right: 2em;
+    margin-left: 2em;
+    font-size: .8rem;
+}
+
+.btn--component:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -2em;
+    width: 2em;
+    background: darken($color-info, 10);
+    height: 100%;
+    z-index: 800;
+    @include border-radius(.5em, .5em, 0, 0);
+}
+.btn--component:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2em;
+    width: 2em;
+    background: darken($color-info, 10);
+    height: 100%;
+    z-index: 800;
+    @include border-radius(0, 0, .5em, .5em);
+}
+
+
 /*------------------------------------*\
     $BOTONES-VARIANTES
 \*------------------------------------*/
@@ -287,30 +328,23 @@
  */
 
 .btn--mini{
-    padding-right:0.5em;
-    padding-left: 0.5em;
-    line-height:1.5;
+    
     font-size: fs(x-small)
 }
 
 .btn--small{
-    padding-right:1.5em;
-    padding-left: 1.5em;
-    line-height:2;
+   
     font-size: fs(small)
 }
 
-.btn--big{
-    padding-right:3em;
-    padding-left: 3em;
-    font-size: fs(small)
-}
-
-.btn--large{
-    padding-right:4em;
-    padding-left: 4em;
-    line-height:3;
+.btn--huge{
+  
     font-size: fs(huge)
+}
+
+.btn--extreme{
+   
+    font-size: fs(extreme)
 }
 
 

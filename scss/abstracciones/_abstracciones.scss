@@ -59,4 +59,20 @@
 .list-no-style {
     list-style-type: none;
 }
+
+.circle {
+  background-color: pink;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 200px;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+}
+    .circle--medium {
+      font-size: 150px;
+    }
+    .circle--small {
+      font-size: 100px;
+    }
 } // if

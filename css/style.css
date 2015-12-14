@@ -802,7 +802,7 @@ hr {
   width: device-width; }
 html {
   background: #fafafa;
-  font-size: 120%;
+  font-size: 90%;
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
@@ -828,6 +828,13 @@ body {
 * A partir de aquí es donde debes escribir los estilos de posicionamiento
 * y detalles que forman tu web. Disfruta!
 */
+main {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  width: 100%;
+  padding-left: 200px; }
+
 /*------------------------------------*\
     $HEADER
 \*------------------------------------*/
@@ -974,8 +981,8 @@ body {
 
 .topbar {
   width: 100%;
-  padding-left: calc((100% - 1200px) / 2);
-  padding-right: calc((100% - 1200px) / 2);
+  padding-left: calc((100% - 900px) / 2);
+  padding-right: calc((100% - 900px) / 2);
   background-color: white;
   padding-top: 11px;
   padding-bottom: 11px;
@@ -1010,11 +1017,17 @@ body {
 
 @media all and (min-width: 540px) {
   .nav {
-    position: static;
+    position: fixed;
     bottom: auto;
     right: auto;
-    width: 100%;
-    height: auto; } }
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh; }
+
+  .nav:after {
+    content: "";
+    content: none; } }
 .nav__list {
   list-style: none;
   margin: 0;
@@ -1033,12 +1046,11 @@ body {
     bottom: auto;
     right: auto;
     padding-bottom: 0;
-    display: table;
-    table-layout: fixed;
     margin-left: auto;
     margin-right: auto;
-    max-width: 800px;
-    width: 100%; } }
+    max-width: 900px;
+    width: 100%;
+    height: 50vh; } }
 .nav__item {
   border-bottom: 1px solid #fafafa; }
   .nav__item a {
@@ -1058,11 +1070,11 @@ body {
 
 @media all and (min-width: 540px) {
   .nav__item {
-    display: table-cell;
     border: 1px solid #e6e6e6; }
     .nav__item a {
       padding: 0;
-      text-align: center; } }
+      text-align: center;
+      height: 5vh; } }
 .checkbox__hack {
   display: none !important;
  /*
@@ -1089,258 +1101,645 @@ body {
   margin: 0;
   z-index: 9001; }
 
+@media all and (min-width: 540px) {
+  .checkbox-hack__label {
+    display: none; } }
 /*------------------------------------*\
     $ARTICLES
 \*------------------------------------*/
-/**
-* Bloques con elementos, deben tener la siguiente estructura
-* para que sean igual que los que salen en la home:
-
-		<article class="article">
-
-    		<h2 class="article__header category-video">grid__item-4</h2>
-
-    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
-
-    		<figure class="article__figure">
-    			<img src="../img/testavatar.jpg" alt="">
-    			<figcaption>
-    				Ocupa una 4ta parte: <code>item-4</code
-    			</figcaption>
-    		</figure>
-
-    		<footer class="article__footer">
-    			Call to action
-    		</footer>
-
-    	</article>
-
-**/
-.article {
-  background-color: white;
+.article-home {
+  width: 100%;
   padding: 11px;
-  position: relative;
-  z-index: 1;
-  margin-bottom: 22px;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1); }
+  background-color: #ededed;
+  margin-bottom: 1em; }
 
-.article__header {
-  font-size: 1rem;
-  margin-bottom: 11px;
-  text-align: center;
-  line-height: 1.5;
-  text-transform: uppercase;
-  background-color: #df99b7;
-  color: #A93667; }
-  .article__header a {
-    color: #A93667;
-    text-decoration: none; }
-
-.article__pic {
-  margin-bottom: 5.5px; }
-
-.article__figure {
-  display: table;
-  margin-bottom: 5.5px;
-  height: 44px;
-  width: 100%; }
-  .article__figure .article__figure__imagelink {
-    display: inline-block;
-    vertical-align: top;
-    width: 44px;
-    margin-bottom: 0;
-    height: 44px;
-    overflow: hidden; }
-    @media screen and (min-width: 29em) {
-      .article__figure .article__figure__imagelink {
-        width: 44px; } }
-    .article__figure .article__figure__imagelink img {
-      width: 44px; }
-
-.article__figcaption {
-  display: table-cell;
-  position: relative;
-  vertical-align: top;
-  color: #262626;
-  font-style: normal;
-  padding: 0 5.5px 0;
-  line-height: 1;
-  margin-bottom: 5.5px;
-  width: 100%; }
-  @media screen and (min-width: 29em) {
-    .article__figcaption {
-      font-size: 0.85rem; } }
-  .article__figcaption a {
-    text-decoration: none; }
-
-.article__description {
-  overflow: hidden;
-  position: relative;
-  padding-right: 1em;
-  max-height: 28px; }
-
-.article__price {
-  position: absolute;
-  bottom: 0px;
-  right: 5px;
-  line-height: 2;
-  width: 100%;
-  text-align: right;
-  color: red;
-  font-size: 0.85rem;
-  font-weight: bold; }
-
-.article__price--oldprice {
-  color: black;
-  text-decoration: line-through;
-  margin-right: 1em; }
-
-.article__categories {
-  padding-left: 2px; }
-
-.article__footer .btn--block {
-  font-size: 0.68rem; }
-
-.article__tags {
-  margin-bottom: 5.5px; }
-
-.grid__item-2 .article__footer {
-  width: 100%;
-  float: right; }
-  @media screen and (min-width: 29em) {
-    .grid__item-2 .article__footer {
-      width: calc(50% - 22px * 1px); } }
-
-/* Debe llevar esta clase cuando es un video
- * y el resto igual que el article normal
- */
-.article--video {
-  position: relative; }
-  .article--video .article__pic__container {
-    position: relative; }
-    .article--video .article__pic__container > img {
-      -webkit-filter: sepia(1) hue-rotate(200deg) grayscale(0.4);
-      filter: sepia(1) hue-rotate(200deg) grayscale(0.4); }
-    .article--video .article__pic__container:after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -60%);
-      -moz-transform: translate(-50%, -60%);
-      -ms-transform: translate(-50%, -60%);
-      -o-transform: translate(-50%, -60%);
-      transform: translate(-50%, -60%);
-      display: block;
-      width: 100px;
-      height: 100px;
-      border-radius: 100%;
-      border: 5px solid white;
-      background-color: #A93667;
-      -webkit-opacity: 0.5;
-      -moz-opacity: 0.5;
-      opacity: 0.5; }
-    .article--video .article__pic__container:before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-40%, -75%);
-      -moz-transform: translate(-40%, -75%);
-      -ms-transform: translate(-40%, -75%);
-      -o-transform: translate(-40%, -75%);
-      transform: translate(-40%, -75%);
-      width: 0;
-      height: 0;
-      border-top: 20px solid transparent;
-      border-bottom: 20px solid transparent;
-      border-left: 30px solid white;
-      z-index: 9001; }
-
-		/* Tenemos el article para los productos.
-		 * Diferente ya que es más simple, su estructura
-		 * es como sigue:
-
-		 	<article class="article article--product">
-	    		<img src="../img/scarlett.jpg" alt="" class="article__pic">
-
-	    		<footer class="article__footer">
-	    			Call to action
-	    		</footer>
-	    	</article>
-		 */
-.article--product {
-  background-color: #c2d9d3;
-  padding: 5.5px;
-  height: 350px; }
-  @media screen and (min-width: 31em) {
-    .article--product {
-      height: 310px; } }
-  .article--product .article__figcaption {
-    background-color: white;
-    color: #262626;
-    text-transform: lowercase;
+@media all and (min-width: 540px) {
+  .article-home {
     width: 100%;
-    display: block;
-    height: 91px; }
-    @media screen and (min-width: 31em) {
-      .article--product .article__figcaption {
-        height: 51px; } }
-  .article--product .article__pic__container {
-    height: 213px;
-    overflow: hidden;
-    background-color: white;
-    margin-bottom: 5.5px; }
-  .article--product .article__footer {
-    position: absolute;
-    bottom: 5.5px;
-    left: 5.5px;
-    right: 5.5px;
-    width: auto; }
-
-.article__fashionist .article__figcaption {
-  line-height: 1.5;
-  font-size: 1rem;
-  height: 40px; }
-
-.article--product--madaish {
-  background-color: #ebc0d2; }
-  .article--product--madaish:before {
-    content: "Recomendación Madaísh";
-    position: absolute;
-    top: 205px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 0.68rem;
-    color: white;
-    background-color: #ebc0d2;
-    line-height: 1.5; }
-
-.article__status {
-  position: absolute;
-  top: 46px;
-  right: 11px;
+    max-width: 50%;
+    display: inline-block;
+    vertical-align: top; } }
+@media all and (min-width: 700px) {
+  .article-home {
+    display: inline-block;
+    width: 50%;
+    height: 270px;
+    vertical-align: top; } }
+.article-home__header {
   background-color: #A93667;
-  color: white;
-  padding: 2px 5px;
-  text-transform: uppercase;
-  font-size: 0.68rem;
-  box-shadow: 1px -1px solid rgba(0, 0, 0, 0.3);
-  z-index: 8000; }
-
-.article__status--public {
-  background-color: #87d873;
-  border-bottom: 1px solid #4bb332;
-  border-left: 1px solid #4bb332; }
-
-.article__status--draft {
-  background-color: #fafafa;
-  color: #A93667; }
+  color: #f7e7ee;
+  padding-left: .5em; }
+  .article-home__header h2 {
+    line-height: 2; }
 
 /**
 * Abstracciones y objetos
 **/
+/*------------------------------------*\
+    $BOTONES
+\*------------------------------------*/
+/*
+ * Definimos los botones y sus variantes
+ */
+/**
+* .btn es la clase principal para definir un botón
+*/
+.btn {
+  display: inline-block;
+  line-height: 2.25em;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1rem;
+  white-space: nowrap;
+  background-color: #a93667;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 1em;
+  padding-left: 1em;
+  border-radius: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  	/**
+   	* Nadie quiere un botón con texto subrayado cuando
+   	* hacemos hover.
+   	*/ }
+  .btn:hover {
+    text-decoration: none; }
+  .btn:active, .btn:focus {
+    outline: none; }
+  .btn:visited {
+    color: white; }
+
+/*------------------------------------*\
+    $BOTONES-CLASE
+\*------------------------------------*/
+/**
+ * Estos son los botones creados para ejemplificar componentes 
+ * con unidades de medida "em"
+ *
+ */
+.btn--component {
+  position: relative;
+  margin-right: 2em;
+  margin-left: 2em;
+  font-size: .8rem; }
+
+.btn--component:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -2em;
+  width: 2em;
+  background: #0088cc;
+  height: 100%;
+  z-index: 800;
+  -webkit-border-top-right-radius: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0.5em;
+  -moz-border-radius-bottomright: 0.5em;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box; }
+
+.btn--component:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2em;
+  width: 2em;
+  background: #0088cc;
+  height: 100%;
+  z-index: 800;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0.5em;
+  -webkit-border-top-left-radius: 0.5em;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0.5em;
+  -moz-border-radius-topleft: 0.5em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0.5em;
+  border-top-left-radius: 0.5em;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box; }
+
+/*------------------------------------*\
+    $BOTONES-VARIANTES
+\*------------------------------------*/
+/**
+ * Variantes de los botones: color para dar sensaciones.
+ *
+ */
+/**
+* Botón no disponible
+*/
+.btn--disabled {
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  cursor: default; }
+
+/**
+* Botón principal
+*/
+.btn--primary {
+  background-color: #A93667;
+  color: white; }
+  .btn--primary:hover {
+    color: white; }
+  .btn--primary:visited {
+    color: white; }
+
+/**
+* Botón transparente
+*/
+.btn--clear {
+  background-color: transparent;
+  color: #262626; }
+  .btn--clear:visited {
+    color: #262626; }
+
+/**
+* Botón con borde
+*/
+.btn--outline {
+  background-color: transparent;
+  color: #A93667;
+  border: 1px solid #A93667; }
+  .btn--outline:visited {
+    color: #A93667; }
+  .btn--outline:hover {
+    border: 1px solid #c64c80;
+    color: #c64c80; }
+
+/**
+* Botón de Error
+*/
+.btn--error {
+  background-color: #da4f49;
+  color: #c72f29; }
+  .btn--error:hover {
+    color: #c72f29; }
+  .btn--error:visited {
+    color: #c72f29; }
+
+/**
+* Botón de Info
+*/
+.btn--info {
+  background-color: #00aaff;
+  color: white; }
+  .btn--info:visited {
+    color: white; }
+
+/**
+* Botón de Call to action
+*/
+.btn--cta {
+  background-color: #10c5ce; }
+  .btn--cta:hover {
+    background-color: #0c989f; }
+  .btn--cta:visited {
+    color: white; }
+
+/**
+* Botón de OK
+*/
+.btn--success {
+  background-color: #87d873;
+  color: #65cd4b; }
+  .btn--success:hover {
+    color: #65cd4b; }
+  .btn--success:visited {
+    color: #65cd4b; }
+
+/**
+* Botón de advertencia
+*/
+.btn--warning {
+  background-color: #c94948; }
+  .btn--warning:hover {
+    background-color: #ab3433; }
+
+.btn--icon {
+  padding: 0;
+  width: 2.25em; }
+
+/**
+* Botón 100% contenedor
+*/
+.btn--footer {
+  display: block;
+  line-height: 2.5;
+  text-align: right;
+  background-color: black;
+  color: white;
+  position: relative; }
+  .btn--footer [class^="icon-"], .btn--footer [class*=" icon-"] {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%); }
+  .btn--footer:hover {
+    color: white; }
+
+.btn--block {
+  display: block;
+  margin: 0 auto;
+  width: 100% !important; }
+
+.btn--banner {
+  font-size: 1rem;
+  display: inline-block;
+  width: 100%;
+  text-align: right;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding-left: 3em;
+  padding-right: .5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1;
+  background-color: #f1d3e0;
+  position: relative;
+  color: white;
+  margin-bottom: 5.5px; }
+  .btn--banner:before {
+    font-size: 2.5em !important;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%); }
+  .btn--banner:hover {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    text-decoration: none; }
+  @media screen and (min-width: 31em) {
+    .btn--banner {
+      padding-left: 4em;
+      padding-top: 1.5em;
+      padding-bottom: 1.5em;
+      padding-right: .5em;
+      font-size: 1.5rem; }
+      .btn--banner:before {
+        left: .5em; } }
+  .btn--banner small {
+    display: block;
+    color: inherit;
+    margin-top: 5px;
+    font-size: 1rem; }
+
+.btn--submit {
+  width: 100% !important;
+  line-height: 3; }
+  @media screen and (min-width: 29em) {
+    .btn--submit {
+      width: auto !important;
+      line-height: 2.25em; } }
+
+.btn--inactive,
+.btn--inactive:hover,
+.btn--inactive:active,
+.btn--inactive:focus {
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  cursor: default; }
+
+/*------------------------------------*\
+    $BOTONES-TAMAÑOS
+\*------------------------------------*/
+/**
+ * Variantes de los botones por tamaño.
+ *
+ */
+.btn--mini {
+  font-size: 0.68rem; }
+
+.btn--small {
+  font-size: 0.85rem; }
+
+.btn--huge {
+  font-size: 2rem; }
+
+.btn--extreme {
+  font-size: 3rem; }
+
+/*------------------------------------*\
+    $BOTONES-GRUPOS
+\*------------------------------------*/
+/**
+ * Con esta clase podemos agrupar los botones
+ * en grupos horizontales.
+ *
+ */
+.btn--group {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  caption-side: bottom; }
+  .btn--group .btn {
+    display: table-cell; }
+  .btn--group > span {
+    display: table-caption !important;
+    line-height: 1.5 !important;
+    font-size: 0.85rem !important; }
+
+/*------------------------------------*\
+    $TEXTURAS
+\*------------------------------------*/
+.alert, .btn--group > span {
+  margin: 0 auto 1.5em;
+  padding: 8px 35px 8px 14px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  width: 100%;
+  background-color: #fce4cf;
+  border: 1px solid #f6ae6f;
+  font-family: Lato, Helvetica, "Roboto Slab", "Droid Serif", "Segoe UI Bold", sans-serif;
+  font-size: 1rem;
+  color: #904809;
+  border-radius: 0;
+  text-align: center; }
+  .alert .alert--heading, .btn--group > span .alert--heading {
+    color: inherit; }
+  .alert .close, .btn--group > span .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 18px;
+    color: inherit; }
+
+.alert--success {
+  background-color: #eef9eb;
+  border-color: #cbeec3;
+  color: #4bb332; }
+
+.alert--warning, .btn--group > span {
+  background-color: #ecbebe;
+  border-color: #e09797;
+  color: #842827; }
+
+.alert--error, .field-validation-error {
+  background-color: #f4cac8;
+  border-color: #eba19e;
+  color: #da4f49; }
+
+.alert--info {
+  background-color: #33bbff;
+  border-color: #0088cc;
+  color: black; }
+
+.alert--inverse {
+  background-color: #3d262c;
+  border-color: black;
+  color: white; }
+
+.field-validation-error {
+  display: block;
+  font-size: 0.68rem;
+  line-height: 1.5;
+  padding: 0 11px; }
+  .field-validation-error + input, .field-validation-error + select, .field-validation-error + textarea, .field-validation-error .mce-container-body {
+    border: 1px solid #fce4cf; }
+
+.alert--block {
+  padding-top: 14px;
+  padding-bottom: 14px; }
+  .alert--block .alert--heading {
+    margin-bottom: 0.1875em;
+    font-size: inherit;
+    font-weight: bold; }
+  .alert--block > p,
+  .alert--block > ul {
+    margin-bottom: 0; }
+  .alert--block p + p {
+    margin-top: 5px; }
+
+.badge {
+  padding: 1px 9px 2px;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid black;
+  white-space: nowrap;
+  color: #262626;
+  background-color: white;
+  -webkit-transition: background-color 0.25s 0 linear;
+  -moz-transition: background-color 0.25s 0 linear;
+  -ms-transition: background-color 0.25s 0 linear;
+  -o-transition: background-color 0.25s 0 linear;
+  transition: background-color 0.25s 0 linear;
+  margin-right: 3px;
+  line-height: 1;
+  display: inline-block; }
+  .badge:hover {
+    text-decoration: none;
+    cursor: pointer; }
+
+.badge--error {
+  background-color: #da4f49; }
+  .badge--error:hover {
+    background-color: #9d2520; }
+
+.badge--warning {
+  background-color: #c94948; }
+  .badge--warning:hover {
+    background-color: #842827; }
+
+.badge--success {
+  background-color: #00aaff; }
+  .badge--success:hover {
+    background-color: #006699; }
+
+.badge--info {
+  background-color: #00aaff;
+  color: black; }
+  .badge--info:hover {
+    background-color: #006699; }
+
+.badge--inverse {
+  background-color: #00aaff;
+  color: white; }
+  .badge--inverse:hover {
+    background-color: #006699;
+    color: white; }
+
+.badge--icon {
+  display: inline-block;
+  color: white;
+  padding: 4.4px;
+  background-color: blue;
+  text-align: center; }
+
+/* Generamos badges de categorías, con el recuadro
+ * precedente. A pesar de ser una modificación del bloque
+ * .bagde, no hace falta añadir la clase badge.
+ */
+.badge--video {
+  display: inline-block;
+  color: #b97e11;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--video:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #f6d8a0;
+    vertical-align: bottom; }
+
+.badge--looks {
+  display: inline-block;
+  color: #386970;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--looks:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #a3cbd1;
+    vertical-align: bottom; }
+
+.badge--moda {
+  display: inline-block;
+  color: #e2bd0a;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--moda:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #fcf1bc;
+    vertical-align: bottom; }
+
+.badge--belleza {
+  display: inline-block;
+  color: #d8660c;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--belleza:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #fbd4b5;
+    vertical-align: bottom; }
+
+.badge--lifestyle {
+  display: inline-block;
+  color: #671c30;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--lifestyle:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #d97690;
+    vertical-align: bottom; }
+
+.badge--base {
+  display: inline-block;
+  color: #0e0509;
+  position: relative;
+  padding-left: 1.5em;
+  margin-right: 1em; }
+  .badge--base:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .25em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: #A93667;
+    vertical-align: bottom; }
+
+.form-group .badge {
+  display: block; }
+
+.well {
+  min-height: 18px;
+  padding: 11px;
+  border-radius: 0;
+  margin-bottom: 1.5em;
+  background-color: #fafafa;
+  border: 0px solid #e6e6e6;
+  -webkit-box-shadow: inset 0 1px 10px #e0e0e0;
+  box-shadow: inset 0 1px 10px #e0e0e0; }
+  .well p:last-child {
+    margin-bottom: 0; }
+
+.well--large {
+  padding: 22px; }
+
+.well--small {
+  padding: 6px; }
+
+::-moz-selection {
+  background-color: #A93667;
+  color: white;
+  text-shadow: none; }
+
+::selection {
+  background-color: #A93667;
+  color: white;
+  text-shadow: none; }
+
 /*------------------------------------*\
     $CATEGORY COLORS
 \*------------------------------------*/
@@ -1387,6 +1786,65 @@ body {
   color: black; }
   .category-base a, .category-base:visited, .category-base a:visited {
     color: black; }
+
+/*------------------------------------*\
+    $ABSTRACIONES
+\*------------------------------------*/
+/*
+*
+* Abstracciones usadas a lo largo del layout, os dejo algunas de ejemplo
+* pero borradlas y añadid las que necesitéis
+*/
+.float-right {
+  float: right; }
+
+.inline-block {
+  display: inline-block; }
+
+.nomargin-bottom {
+  margin-bottom: 0; }
+
+.margin-left {
+  margin-left: 22px; }
+
+.margin-bottom {
+  margin-bottom: 22px; }
+
+.margin-bottom-xl {
+  margin-bottom: 44px; }
+
+.padding-top {
+  padding-top: 11px; }
+
+.maxwidth {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 900px;
+  width: 100%; }
+
+.align-right {
+  text-align: right; }
+
+.inline-block {
+  display: inline-block; }
+
+.list-no-style {
+  list-style-type: none; }
+
+.circle {
+  background-color: pink;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 200px;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%; }
+
+.circle--medium {
+  font-size: 150px; }
+
+.circle--small {
+  font-size: 100px; }
 
 /*------------------------------------*\
     $STEPS

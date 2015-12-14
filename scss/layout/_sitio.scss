@@ -30,7 +30,7 @@
 
 html {
 	background : $background;
-	font-size : 120%;
+	font-size : 90%;
 	-webkit-overflow-scrolling : touch;
 	-webkit-tap-highlight-color : transparent;
 	-webkit-text-size-adjust : 100%;
@@ -58,3 +58,8 @@ body {
 * A partir de aquí es donde debes escribir los estilos de posicionamiento
 * y detalles que forman tu web. Disfruta!
 */
+
+main {
+	@include max-width();
+	padding-left: 200px;
+}

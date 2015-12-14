@@ -38,11 +38,17 @@
 
 @media all and (min-width: 540px) {
     .nav {
-        position: static;
+        position: fixed;
         bottom: auto;
         right: auto;
-        width:  100%;
-        height: auto;
+        left: 0;
+        top: 0;
+        width:  200px;
+        height: 100vh;
+    }
+    .nav:after {
+        content: "";
+        content: none;
     }
 }
 
@@ -65,9 +71,8 @@
             bottom:   auto;
             right:  auto;
             padding-bottom: 0;
-            display: table;
-            table-layout: fixed;
-            @include max-width(800px);
+            @include max-width();
+            height: 50vh;
         }
     }
 
@@ -94,11 +99,12 @@
         }
         @media all and (min-width: 540px) {
             .nav__item {
-                display: table-cell;
                 border: 1px solid $lightgrey;
+
                 a {
                     padding: 0;
                     text-align: center;
+                    height: 5vh;
                 }
             }
         }
@@ -141,5 +147,10 @@
         cursor: pointer;
         margin:0;
         z-index: z(goku);
+     }
+     @media all and (min-width: 540px) {
+        .checkbox-hack__label {
+            display: none;
+        }
      }
 } //endif
